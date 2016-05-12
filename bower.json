@@ -1,0 +1,16 @@
+{
+  "name": "Travox MidBack-Resources",
+  "authors": [
+    "Kananek T. <info.dvgamer@gmail.com>"
+  ],
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "homepage": "",
+  "dependencies": {
+    "jquery": "^2.2.3",
+    "vue": "^1.0.24",
+    "moment": "^2.13.0",
+    "blueimp-file-upload": "fileupload#^9.12.3"
+  }
+}
