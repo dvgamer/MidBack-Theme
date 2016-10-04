@@ -3695,7 +3695,7 @@ input[type="checkbox"]:focus {
 }
 output {
   display: block;
-  padding-top: 6px;
+  padding-top: 4px;
   font-size: 11px;
   line-height: 1.42857143;
   color: #555;
@@ -3703,8 +3703,8 @@ output {
 .form-control {
   display: block;
   width: 100%;
-  height: 27px;
-  padding: 5px 25px;
+  height: 23px;
+  padding: 3px 3px;
   font-size: 11px;
   line-height: 1.42857143;
   color: #555;
@@ -3759,7 +3759,7 @@ input[type="search"] {
   input[type="time"].form-control,
   input[type="datetime-local"].form-control,
   input[type="month"].form-control {
-    line-height: 27px;
+    line-height: 23px;
   }
   input[type="date"].input-sm,
   input[type="time"].input-sm,
@@ -3805,7 +3805,7 @@ input[type="search"] {
 .checkbox input[type="checkbox"],
 .checkbox-inline input[type="checkbox"] {
   position: absolute;
-  margin-top: 4px \9;
+  margin-top: 4px;
   margin-left: -20px;
 }
 .radio + .radio,
@@ -3849,8 +3849,8 @@ fieldset[disabled] .checkbox label {
 }
 .form-control-static {
   min-height: 26px;
-  padding-top: 6px;
-  padding-bottom: 6px;
+  padding-top: 4px;
+  padding-bottom: 4px;
   margin-bottom: 0;
 }
 .form-control-static.input-lg,
@@ -3936,7 +3936,7 @@ select[multiple].input-lg {
   position: relative;
 }
 .has-feedback .form-control {
-  padding-right: 33.75px;
+  padding-right: 28.75px;
 }
 .form-control-feedback {
   position: absolute;
@@ -3944,9 +3944,9 @@ select[multiple].input-lg {
   right: 0;
   z-index: 2;
   display: block;
-  width: 27px;
-  height: 27px;
-  line-height: 27px;
+  width: 23px;
+  height: 23px;
+  line-height: 23px;
   text-align: center;
   pointer-events: none;
 }
@@ -4120,13 +4120,13 @@ select[multiple].input-lg {
 .form-horizontal .checkbox,
 .form-horizontal .radio-inline,
 .form-horizontal .checkbox-inline {
-  padding-top: 6px;
+  padding-top: 4px;
   margin-top: 0;
   margin-bottom: 0;
 }
 .form-horizontal .radio,
 .form-horizontal .checkbox {
-  min-height: 21px;
+  min-height: 19px;
 }
 .form-horizontal .form-group {
   margin-right: -1px;
@@ -4134,7 +4134,7 @@ select[multiple].input-lg {
 }
 @media (min-width: 768px) {
   .form-horizontal .control-label {
-    padding-top: 6px;
+    padding-top: 4px;
     margin-bottom: 0;
     text-align: right;
   }
@@ -4156,7 +4156,8 @@ select[multiple].input-lg {
 }
 .btn {
   display: inline-block;
-  padding: 5px 25px;
+  padding: -webkit-calc(3px + 2px) -webkit-calc(3px + 22px);
+  padding:         calc(3px + 2px) calc(3px + 22px);
   margin-bottom: 0;
   font-size: 11px;
   font-weight: bold;
@@ -5051,7 +5052,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   vertical-align: middle;
 }
 .input-group-addon {
-  padding: 5px 25px;
+  padding: 3px 3px;
   font-size: 11px;
   font-weight: normal;
   line-height: 1;
@@ -5521,9 +5522,9 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 }
 .navbar-form {
   padding: 10px 1px;
-  margin-top: 2.5px;
+  margin-top: 4.5px;
   margin-right: -1px;
-  margin-bottom: 2.5px;
+  margin-bottom: 4.5px;
   margin-left: -1px;
   border-top: 1px solid transparent;
   border-bottom: 1px solid transparent;
@@ -5613,8 +5614,8 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   border-bottom-left-radius: 0;
 }
 .navbar-btn {
-  margin-top: 2.5px;
-  margin-bottom: 2.5px;
+  margin-top: 4.5px;
+  margin-bottom: 4.5px;
 }
 .navbar-btn.btn-sm {
   margin-top: 3.5px;
@@ -5876,7 +5877,7 @@ fieldset[disabled] .navbar-inverse .btn-link:focus {
 .pagination > li > span {
   position: relative;
   float: left;
-  padding: 5px 25px;
+  padding: 3px 3px;
   margin-left: -1px;
   line-height: 1.42857143;
   color: #2d6aa0;
