@@ -9,12 +9,13 @@
   "homepage": "",
   "dependencies": {
     "jquery": "^2.2.3",
-    "vue": "^1.0.24",
+    "vue": "https://github.com/vuejs/vue.git#v2.0.1",
     "moment": "^2.13.0",
     "blueimp-file-upload": "fileupload#^9.12.3",
     "bootstrap": "^3.3.6",
     "socket.io-client": "https://github.com/socketio/socket.io-client.git#^1.4.8",
     "components-font-awesome": "^4.6.3",
-    "material-preloader": "https://github.com/aarondo/Material-Preloader.git"
+    "material-preloader": "https://github.com/aarondo/Material-Preloader.git",
+    "flatpickr": "flatpickr-calendar#^2.0.2"
   }
 }
