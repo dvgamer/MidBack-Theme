@@ -14,6 +14,7 @@
     "blueimp-file-upload": "fileupload#^9.12.3",
     "bootstrap": "^3.3.6",
     "socket.io-client": "https://github.com/socketio/socket.io-client.git#^1.4.8",
-    "components-font-awesome": "^4.6.3"
+    "components-font-awesome": "^4.6.3",
+    "material-preloader": "https://github.com/aarondo/Material-Preloader.git"
   }
 }
