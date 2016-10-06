@@ -1,0 +1,15 @@
+{
+  "name": "capslockstate-jquery-plugin",
+  "homepage": "https://github.com/nosilleg/capslockstate-jquery-plugin",
+  "version": "1.2.1",
+  "_release": "1.2.1",
+  "_resolution": {
+    "type": "version",
+    "tag": "1.2.1",
+    "commit": "5974328bf43f030474e00f17acf3a557269b9903"
+  },
+  "_source": "https://github.com/nosilleg/capslockstate-jquery-plugin.git",
+  "_target": "^1.2.1",
+  "_originalSource": "https://github.com/nosilleg/capslockstate-jquery-plugin.git",
+  "_direct": true
+}

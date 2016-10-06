@@ -17,6 +17,9 @@
     "components-font-awesome": "^4.6.3",
     "material-preloader": "https://github.com/aarondo/Material-Preloader.git",
     "flatpickr": "flatpickr-calendar#^2.0.2",
-    "JavaScript-MD5": "https://github.com/blueimp/JavaScript-MD5.git#^2.3.1"
+    "JavaScript-MD5": "https://github.com/blueimp/JavaScript-MD5.git#^2.3.1",
+    "axios": "^0.14.0",
+    "lodash": "https://github.com/lodash/lodash.git#^4.16.4",
+    "capslockstate-jquery-plugin": "https://github.com/nosilleg/capslockstate-jquery-plugin.git#^1.2.1"
   }
 }
