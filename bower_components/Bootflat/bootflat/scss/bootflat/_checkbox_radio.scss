@@ -1,7 +1,7 @@
 // Variables
 //------------------------------------------------------
-$img-src:                "../img/default.png" !default;
 
+$toggle-transition-value:               all .25s ease-in-out !default;
 // Exports
 //------------------------------------------------------
 
@@ -11,57 +11,69 @@ $img-src:                "../img/default.png" !default;
    * checkbox and radio
    * --------------------------------------------------
    */
-  .checkbox, .radio {
+  .radio {
       margin-top: 0;
       padding-left: 0;
   }
-  .checkbox label, .radio label {
-      position: relative;
-      top: 2px;
-	  padding-left: 5px;
-  }
-  .icheckbox_flat,
-  .iradio_flat {
-      display: inline-block;
-      *display: inline;
-      vertical-align: middle;
-      margin: 0;
-      padding: 0 !important;
-      width: 20px;
-      height: 20px;
-      background: url($img-src) no-repeat;
-      border: none;
-      cursor: pointer;
+  .radio label {
+    position: relative;
+    top: 2px;
+    padding-left: 5px;
   }
 
-  .icheckbox_flat {
-      background-position: 0 0;
+  .checkbox {
+    margin-top: 0;
+    padding-left: 0;
+    >input {
+      margin: 3px 0px 0px;
+      padding: 0px;
+      opacity: 0;
 
-      &.checked {
-          background-position: -22px 0;
+      + label {
+        position: relative;
+        top: 2px;
+        padding-left: 5px;
+        &::before {
+          font-family: 'Glyphicons Halflings';
+          font-size: 0.85em;
+          display: inline-block;
+          content: "\e013";
+          color: $white;
+          border: $mediumgray-dark solid 1px;
+          min-width: 16px;
+          padding: 0px 2px;
+          margin: 0 5px 0 -5px;
+          @include transition($toggle-transition-value);
+        }
       }
-      &.disabled {
-          background-position: -44px 0;
-          cursor: default;
+
+      &:checked + label::before {
+        border: $button-primary solid 1px;
+        background-color: $button-primary;
       }
-      &.checked.disabled {
-          background-position: -66px 0;
+
+      &.disabled, 
+      &[disabled] {
+        cursor: default; 
+        + label {
+          cursor: default; 
+          &::before {
+            border: $mediumgray-light solid 1px;
+            color: $mediumgray-light;
+            background-color: $mediumgray-light;
+          }
+        }
+        &:checked + label {
+          cursor: default; 
+          &::before {
+            border: $mediumgray-light solid 1px;
+            color: $white;
+            background-color: $mediumgray-light;
+          }
+        }
+
       }
+    }
   }
-
-  .iradio_flat {
-      background-position: -88px 0;
-
-      &.checked {
-          background-position: -110px 0;
-      }
-      &.disabled {
-          background-position: -132px 0;
-          cursor: default;
-      }
-      &.checked.disabled {
-          background-position: -154px 0;
-      }
-  }
-
+ 
 }

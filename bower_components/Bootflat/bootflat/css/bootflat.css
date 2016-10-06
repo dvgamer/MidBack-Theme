@@ -7,7 +7,7 @@
  *
  * By @Flathemes <info@flathemes.com>
  *
- * Last modify time: 2016-10-05
+ * Last modify time: 2016-10-06
  *
  * Licensed under the MIT license. Please see LICENSE for more information.
  *
@@ -186,9 +186,19 @@ blockquote
 }
 .btn.disabled, .btn[disabled]
 {
-    opacity: .45;
+    opacity: .45;
+    color: #434a54;
 
     filter: alpha(opacity=45);
+}
+.btn > i.fa
+{
+    font-size: 1.365rem;
+    font-weight: bold;
+}
+.btn > i.fa.fa-button:not(.hidden) + span
+{
+    margin-left: 3px;
 }
 .btn-link, .btn-link:hover, .btn-link:focus, .btn-link:active, .btn-link.active, .btn-link.disabled, .btn-link[disabled]
 {
@@ -224,6 +234,7 @@ blockquote
 }
 .btn-primary, .btn-primary:active, .btn-primary.active, .btn-primary.disabled, .btn-primary[disabled]
 {
+    color: #fff;
     border-color: #3bafda;
     background-color: #3bafda;
 }
@@ -239,6 +250,7 @@ blockquote
 }
 .btn-info, .btn-info:active, .btn-info.active, .btn-info.disabled, .btn-info[disabled]
 {
+    color: #fff;
     border-color: #37bc9b;
     background-color: #37bc9b;
 }
@@ -254,6 +266,7 @@ blockquote
 }
 .btn-success, .btn-success:active, .btn-success.active, .btn-success.disabled, .btn-success[disabled]
 {
+    color: #fff;
     border-color: #8cc152;
     background-color: #8cc152;
 }
@@ -269,6 +282,7 @@ blockquote
 }
 .btn-warning, .btn-warning:active, .btn-warning.active, .btn-warning.disabled, .btn-warning[disabled]
 {
+    color: #fff;
     border-color: #f6bb42;
     background-color: #f6bb42;
 }
@@ -285,6 +299,7 @@ blockquote
 .btn-danger, .btn-danger:active, .btn-danger.active, .btn-danger.disabled, .btn-danger[disabled],
 .btn-danger .open .dropdown-toggle.btn
 {
+    color: #fff;
     border-color: #da4453;
     background-color: #da4453;
 }
@@ -1307,13 +1322,13 @@ blockquote
  * checkbox and radio
  * --------------------------------------------------
  */
-.checkbox, .radio
+.radio
 {
     margin-top: 0;
     padding-left: 0;
 }
 
-.checkbox label, .radio label
+.radio label
 {
     position: relative;
     top: 2px;
@@ -1321,61 +1336,72 @@ blockquote
     padding-left: 5px;
 }
 
-.icheckbox_flat,
-.iradio_flat
+.checkbox
 {
+    margin-top: 0;
+    padding-left: 0;
+}
+.checkbox > input
+{
+    margin: 3px 0 0;
+    padding: 0;
+
+    opacity: 0;
+}
+.checkbox > input + label
+{
+    position: relative;
+    top: 2px;
+
+    padding-left: 5px;
+}
+.checkbox > input + label::before
+{
+    font-family: 'Glyphicons Halflings';
+    font-size: .85em;
+
     display: inline-block;
 
-    width: 20px;
-    height: 20px;
-    margin: 0;
-    padding: 0 !important;
+    min-width: 16px;
+    margin: 0 5px 0 -5px;
+    padding: 0 2px;
 
-    cursor: pointer;
-    vertical-align: middle;
+    content: '\e013';
+    -webkit-transition: all .25s ease-in-out;
+       -moz-transition: all .25s ease-in-out;
+            transition: all .25s ease-in-out;
 
-    border: none;
-    background: url('../img/default.png') no-repeat;
-
-    *display: inline;
+    color: #fff;
+    border: #aab2bd solid 1px;
 }
-
-.icheckbox_flat
+.checkbox > input:checked + label::before
 {
-    background-position: 0 0;
+    border: #3bafda solid 1px;
+    background-color: #3bafda;
 }
-.icheckbox_flat.checked
-{
-    background-position: -22px 0;
-}
-.icheckbox_flat.disabled
+.checkbox > input.disabled, .checkbox > input[disabled]
 {
     cursor: default;
-
-    background-position: -44px 0;
 }
-.icheckbox_flat.checked.disabled
-{
-    background-position: -66px 0;
-}
-
-.iradio_flat
-{
-    background-position: -88px 0;
-}
-.iradio_flat.checked
-{
-    background-position: -110px 0;
-}
-.iradio_flat.disabled
+.checkbox > input.disabled + label, .checkbox > input[disabled] + label
 {
     cursor: default;
-
-    background-position: -132px 0;
 }
-.iradio_flat.checked.disabled
+.checkbox > input.disabled + label::before, .checkbox > input[disabled] + label::before
 {
-    background-position: -154px 0;
+    color: #ccd1d9;
+    border: #ccd1d9 solid 1px;
+    background-color: #ccd1d9;
+}
+.checkbox > input.disabled:checked + label, .checkbox > input[disabled]:checked + label
+{
+    cursor: default;
+}
+.checkbox > input.disabled:checked + label::before, .checkbox > input[disabled]:checked + label::before
+{
+    color: #fff;
+    border: #ccd1d9 solid 1px;
+    background-color: #ccd1d9;
 }
 
 /**
