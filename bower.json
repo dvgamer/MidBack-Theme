@@ -21,6 +21,9 @@
     "axios": "^0.14.0",
     "lodash": "https://github.com/lodash/lodash.git#^4.16.4",
     "capslockstate-jquery-plugin": "https://github.com/nosilleg/capslockstate-jquery-plugin.git#^1.2.1",
-    "vue-html-editor": "^0.2.1"
+    "vue-html-editor": "^0.2.1",
+    "push.js": "^0.0.11",
+    "simple-ajax-uploader": "https://github.com/LPology/Simple-Ajax-Uploader.git#^2.5.5",
+    "dynatable": "https://github.com/alfajango/jquery-dynatable.git#^0.3.1"
   }
 }
