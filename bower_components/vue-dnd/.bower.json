@@ -1,0 +1,30 @@
+{
+  "name": "vue-dnd",
+  "description": "DnD (drag and drop) plugin for Vue.js",
+  "authors": [
+    "lain-dono"
+  ],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:lain-dono/vue-dnd.git"
+  },
+  "main": "index.js",
+  "ignore": [
+    ".*",
+    "*.md",
+    "LICENSE",
+    "package.json"
+  ],
+  "homepage": "https://github.com/lain-dono/vue-dnd",
+  "_release": "a665bab9fd",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "a665bab9fd3e711ffeb18834cb830d232a39fa9d"
+  },
+  "_source": "https://github.com/lain-dono/vue-dnd.git",
+  "_target": "*",
+  "_originalSource": "https://github.com/lain-dono/vue-dnd.git",
+  "_direct": true
+}
