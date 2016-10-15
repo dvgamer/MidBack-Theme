@@ -120,7 +120,7 @@ module.exports = function (grunt) {
           'js/tab.js',
           'js/affix.js'
         ],
-        dest: '../../dist/js/<%= pkg.name %>.js'
+        dest: '../../src/js/<%= pkg.name %>.js'
       }
     },
 
@@ -134,7 +134,7 @@ module.exports = function (grunt) {
       },
       core: {
         src: '<%= concat.bootstrap.dest %>',
-        dest: '../../dist/js/<%= pkg.name %>.min.js'
+        dest: '../../src/js/<%= pkg.name %>.min.js'
       },
       customize: {
         src: configBridge.paths.customizerJs,
@@ -160,10 +160,10 @@ module.exports = function (grunt) {
           sourceMap: true,
           outputSourceFiles: true,
           sourceMapURL: '<%= pkg.name %>.css.map',
-          sourceMapFilename: '../../dist/css/<%= pkg.name %>.css.map'
+          sourceMapFilename: '../../src/css/<%= pkg.name %>.css.map'
         },
         src: 'less/bootstrap.less',
-        dest: '../../dist/css/<%= pkg.name %>.css'
+        dest: '../../src/css/<%= pkg.name %>.css'
       },
       compileTheme: {
         options: {
@@ -171,10 +171,10 @@ module.exports = function (grunt) {
           sourceMap: true,
           outputSourceFiles: true,
           sourceMapURL: '<%= pkg.name %>-theme.css.map',
-          sourceMapFilename: '../../dist/css/<%= pkg.name %>-theme.css.map'
+          sourceMapFilename: '../../src/css/<%= pkg.name %>-theme.css.map'
         },
         src: 'less/theme.less',
-        dest: '../../dist/css/<%= pkg.name %>-theme.css'
+        dest: '../../src/css/<%= pkg.name %>-theme.css'
       }
     },
 
@@ -186,13 +186,13 @@ module.exports = function (grunt) {
         options: {
           map: true
         },
-        src: '../../dist/css/<%= pkg.name %>.css'
+        src: '../../src/css/<%= pkg.name %>.css'
       },
       theme: {
         options: {
           map: true
         },
-        src: '../../dist/css/<%= pkg.name %>-theme.css'
+        src: '../../src/css/<%= pkg.name %>-theme.css'
       },
       docs: {
         src: ['docs/assets/css/src/docs.css']
@@ -210,8 +210,8 @@ module.exports = function (grunt) {
         csslintrc: 'less/.csslintrc'
       },
       dist: [
-        '../../dist/css/bootstrap.css',
-        '../../dist/css/bootstrap-theme.css'
+        '../../src/css/bootstrap.css',
+        '../../src/css/bootstrap-theme.css'
       ],
       examples: [
         'docs/examples/**/*.css'
@@ -235,12 +235,12 @@ module.exports = function (grunt) {
         advanced: false
       },
       minifyCore: {
-        src: '../../dist/css/<%= pkg.name %>.css',
-        dest: '../../dist/css/<%= pkg.name %>.min.css'
+        src: '../../src/css/<%= pkg.name %>.css',
+        dest: '../../src/css/<%= pkg.name %>.min.css'
       },
       minifyTheme: {
-        src: '../../dist/css/<%= pkg.name %>-theme.css',
-        dest: '../../dist/css/<%= pkg.name %>-theme.min.css'
+        src: '../../src/css/<%= pkg.name %>-theme.css',
+        dest: '../../src/css/<%= pkg.name %>-theme.min.css'
       },
       docs: {
         src: [
@@ -258,9 +258,9 @@ module.exports = function (grunt) {
       },
       dist: {
         expand: true,
-        cwd: '../../dist/css/',
+        cwd: '../../src/css/',
         src: ['*.css', '!*.min.css'],
-        dest: '../../dist/css/'
+        dest: '../../src/css/'
       },
       examples: {
         expand: true,
@@ -278,11 +278,11 @@ module.exports = function (grunt) {
       fonts: {
         expand: true,
         src: 'fonts/*',
-        dest: '../../dist/'
+        dest: '../../src/'
       },
       docs: {
         expand: true,
-        cwd: '../../dist/',
+        cwd: '../../src/',
         src: [
           '**/*'
         ],
@@ -380,7 +380,7 @@ module.exports = function (grunt) {
         })(),
         replacement: grunt.option('newver'),
         exclude: [
-          '../../dist/fonts',
+          '../../src/fonts',
           'docs/assets',
           'fonts',
           'js/tests/vendor',
@@ -421,7 +421,7 @@ module.exports = function (grunt) {
         files: [
           {
             expand: true,
-            cwd: '../../dist/',
+            cwd: '../../src/',
             src: ['**'],
             dest: 'bootstrap-<%= pkg.version %>-dist'
           }
@@ -502,7 +502,7 @@ module.exports = function (grunt) {
 
   grunt.registerTask('commonjs', 'Generate CommonJS entrypoint module in dist dir.', function () {
     var srcFiles = grunt.config.get('concat.bootstrap.src');
-    var destFilepath = '../../dist/js/npm.js';
+    var destFilepath = '../../src/js/npm.js';
     generateCommonJSModule(grunt, srcFiles, destFilepath);
   });
 

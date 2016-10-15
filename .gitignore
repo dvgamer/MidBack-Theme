@@ -1,2 +1,4 @@
 node_modules/
 bower_components/Bootflat/.sass-cache/
+bower_components/mongoose/docs/
+bower_components/mongoose/test/
