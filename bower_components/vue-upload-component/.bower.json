@@ -1,15 +1,14 @@
 {
   "name": "vue-upload-component",
   "homepage": "https://github.com/lian-yue/vue-upload-component",
-  "version": "0.3.8",
-  "_release": "0.3.8",
+  "_release": "bc24562a12",
   "_resolution": {
-    "type": "version",
-    "tag": "v0.3.8",
-    "commit": "6ad9dea7e143a4158334959fa5b3e05fb5ec673c"
+    "type": "branch",
+    "branch": "next",
+    "commit": "bc24562a12acb319ccdf7c6c8757cb03e6286c6e"
   },
   "_source": "https://github.com/lian-yue/vue-upload-component.git",
-  "_target": "^0.3.8",
+  "_target": "next",
   "_originalSource": "https://github.com/lian-yue/vue-upload-component.git",
   "_direct": true
 }
