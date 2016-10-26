@@ -130,13 +130,12 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-cssmin');
   grunt.loadNpmTasks('grunt-concat-css');
 
+  //bundle build
   grunt.registerTask('js', ['uglify:ie_fixed', 'uglify:app', 'uglify:bundle', 'sass']);
   grunt.registerTask('css', ['cssmin', 'concat_css']);
-
   grunt.registerTask('default', ['clean', 'js','css','copy']);
 
-  grunt.registerTask('predev', ['uglify:vendor','uglify:dev','sass','cssmin', 'concat_css']);
-
-  //dev build
-  grunt.registerTask('dev', ['clean','predev','copy','watch']);
+  //develop build
+  grunt.registerTask('pre', ['uglify:vendor','uglify:dev','sass','cssmin', 'concat_css']);
+  grunt.registerTask('dev', ['clean','pre','copy','watch']);
 }; 
