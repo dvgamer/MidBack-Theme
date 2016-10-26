@@ -5,7 +5,7 @@ module.exports = function(grunt) {
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'), 
 		clean: {
-		  javascript: ['sources/js/app.min.js'],
+		  javascript: ['sources/js/app/app.js'],
 		  scss: ['sources/css/site/**/*', 'sources/css/mintify/**/*'],
 		  dist: ['dist/**/*']
 		},
@@ -19,7 +19,7 @@ module.exports = function(grunt) {
       },
       app: {
         files: { 
-        	'sources/js/app.min.js': [
+        	'sources/js/app/app.js': [
 	        	'sources/app-js/**/*.js'
         	] 
         }
@@ -33,10 +33,18 @@ module.exports = function(grunt) {
       }, 
       vendor: {
         files: { 
-        	'dist/vendor.js': [
+        	'dist/vendor.min.js': [
+	        	'sources/js/main/*.js',
+	        	'sources/js/*.js'
+        	] 
+        }
+      }, 
+      bundle: {
+        files: { 
+        	'dist/bundle.js': [
 	        	'sources/js/main/*.js',
 	        	'sources/js/*.js',
-	        	'sources/js/app.min.js'
+	        	'sources/js/app/app.js'
         	] 
         }
       }
@@ -87,7 +95,12 @@ module.exports = function(grunt) {
         files: [{ expand: true, cwd:'sources/icon/', src: '*.*', dest: 'dist/icon/' }] 
       },
       dev: {
-        files: [{ expand: true, cwd:'dist/', src: ['app.min.css', 'app.min.js'], dest: '../Midback-Office/TravoxReservation/travoxmosWeb/dist/' }] 
+        files: [{ 
+        	expand: true,  
+        	cwd:'dist/', 
+        	src: ['vendor.min.js','app.min.css', 'app.min.js'], 
+        	dest: '../Midback-Office/TravoxReservation/travoxmosWeb/dist/' 
+        }] 
       }
     },
 		watch: {
@@ -117,13 +130,13 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-cssmin');
   grunt.loadNpmTasks('grunt-concat-css');
 
-  grunt.registerTask('js', ['uglify:ie_fixed', 'uglify:app', 'uglify:vendor', 'sass']);
+  grunt.registerTask('js', ['uglify:ie_fixed', 'uglify:app', 'uglify:bundle', 'sass']);
   grunt.registerTask('css', ['cssmin', 'concat_css']);
 
   grunt.registerTask('default', ['clean', 'js','css','copy']);
 
-  grunt.registerTask('predev', ['uglify:dev','sass','cssmin:site', 'concat_css']);
+  grunt.registerTask('predev', ['uglify:vendor','uglify:dev','sass','cssmin', 'concat_css']);
 
-  //dev build 
-  grunt.registerTask('dev', ['clean','predev', 'copy:dev','watch']);
-};
+  //dev build
+  grunt.registerTask('dev', ['clean','predev','copy','watch']);
+}; 
