@@ -85,6 +85,9 @@ module.exports = function(grunt) {
       },
       icon: { 
         files: [{ expand: true, cwd:'sources/icon/', src: '*.*', dest: 'dist/icon/' }] 
+      },
+      dev: {
+        files: [{ expand: true, cwd:'dist/', src: ['app.min.css', 'app.min.js'], dest: '../Midback-Office/TravoxReservation/travoxmosWeb/dist/' }] 
       }
     },
 		watch: {
@@ -97,7 +100,7 @@ module.exports = function(grunt) {
 		  },
 		  css: {
 		    files: ['sources/app-scss/**/*.scss'],
-		    tasks: ['clean:scss','sass','cssmin:dev'],
+		    tasks: ['clean:scss','sass','cssmin:site'],
 		    options: {
 		      debounceDelay: 500,
 		    },
@@ -121,6 +124,6 @@ module.exports = function(grunt) {
 
   grunt.registerTask('predev', ['uglify:dev','sass','cssmin:site', 'concat_css']);
 
-  //dev build
-  grunt.registerTask('dev', ['clean','predev','watch']);
+  //dev build 
+  grunt.registerTask('dev', ['clean','predev', 'copy:dev','watch']);
 };
