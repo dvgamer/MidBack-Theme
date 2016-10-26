@@ -4,3 +4,6 @@ bower_components/mongoose/docs/
 bower_components/mongoose/test/
 .sass-cache/
 dist/
+sources/css/site/
+sources/css/mintify/
+sources/js/app.min.js
