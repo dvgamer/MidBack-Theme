@@ -3,7 +3,7 @@ var timer = require("grunt-timer");
 module.exports = function(grunt) {
 	timer.init(grunt, { deferLogs: true, friendlyTime: true, color: "blue" });
   grunt.initConfig({
-    pkg: grunt.file.readJSON('package.json'),
+    pkg: grunt.file.readJSON('package.json'), 
 		clean: {
 		  javascript: ['sources/js/app.min.js'],
 		  scss: ['sources/css/site/**/*', 'sources/css/mintify/**/*'],
@@ -23,7 +23,14 @@ module.exports = function(grunt) {
 	        	'sources/app-js/**/*.js'
         	] 
         }
-      },
+      }, 
+      dev: {
+        files: { 
+        	'dist/app.min.js': [
+	        	'sources/app-js/**/*.js'
+        	] 
+        }
+      }, 
       vendor: {
         files: { 
         	'dist/vendor.js': [
@@ -70,7 +77,7 @@ module.exports = function(grunt) {
 	    all: {
 	      src: ["sources/css/mintify/**/*.css"],
 	      dest: "dist/app.min.css"
-	    },
+	    }
 	  },
     copy: {
       fonts: { 
@@ -80,8 +87,25 @@ module.exports = function(grunt) {
         files: [{ expand: true, cwd:'sources/icon/', src: '*.*', dest: 'dist/icon/' }] 
       }
     },
+		watch: {
+		  js: {
+		    files: ['sources/app-js/**/*.js'],
+		    tasks: ['uglify:dev'],
+		    options: {
+		      debounceDelay: 500,
+		    },
+		  },
+		  css: {
+		    files: ['sources/app-scss/**/*.scss'],
+		    tasks: ['clean:scss','sass','cssmin:dev'],
+		    options: {
+		      debounceDelay: 500,
+		    },
+		  },
+		}
   });
 
+  grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-contrib-copy');
@@ -90,8 +114,13 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-cssmin');
   grunt.loadNpmTasks('grunt-concat-css');
 
-  grunt.registerTask('js', ['uglify', 'sass']);
-  grunt.registerTask('css', ['cssmin','concat_css']);
+  grunt.registerTask('js', ['uglify:ie_fixed', 'uglify:app', 'uglify:vendor', 'sass']);
+  grunt.registerTask('css', ['cssmin', 'concat_css']);
 
   grunt.registerTask('default', ['clean', 'js','css','copy']);
+
+  grunt.registerTask('predev', ['uglify:dev','sass','cssmin:site', 'concat_css']);
+
+  //dev build
+  grunt.registerTask('dev', ['clean','predev','watch']);
 };
