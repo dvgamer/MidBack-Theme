@@ -4,34 +4,31 @@
 
 ### Support
 
-- jquery `^2.2.3`
-- vue `https://github.com/vuejs/vue.git#v2.0.1`
-- moment `^2.13.0`
-- bootstrap `^3.3.6`
-- socket.io-client `https://github.com/socketio/socket.io-client.git#^1.4.8`
-- components-font-awesome `^4.6.3`
-- material-preloader `https://github.com/aarondo/Material-Preloader.git`
-- flatpickr `flatpickr-calendar#^2.0.2`
-- JavaScript-MD5 `https://github.com/blueimp/JavaScript-MD5.git#^2.3.1`
-- axios `^0.14.0`
-- lodash `https://github.com/lodash/lodash.git#^4.16.4`
-- capslockstate-jquery-plugin `https://github.com/nosilleg/capslockstate-jquery-plugin.git#^1.2.1`
-- vue-html-editor `^0.2.1`
-- push.js `^0.0.11`
-- dynatable `https://github.com/alfajango/jquery-dynatable.git#^0.3.1`
-- chai `https://github.com/chaijs/chai.git#^3.5.0`
-- chai-http `https://github.com/chaijs/chai-http.git#^3.0.0`
-- localforage `^1.4.3`
-- html5shiv `^3.7.3`
-- respond `https://github.com/scottjehl/Respond.git#^1.4.2`
-- vue-upload-component `https://github.com/lian-yue/vue-upload-component.git#next`
-- vue-dnd `https://github.com/lain-dono/vue-dnd.git`
-- mongoose `https://github.com/Automattic/mongoose.git#^4.6.`
+- [jquery](https://github.com/jquery/jquery.git) `https://github.com/jquery/jquery.git`
+- [vue](https://github.com/vuejs/vue.git) `https://github.com/vuejs/vue.git`
+- [moment](https://github.com/moment/moment.git) `https://github.com/moment/moment.git`
+- [bootstrap](https://github.com/twbs/bootstrap.git) `https://github.com/twbs/bootstrap.git`
+- [socket.io-client](https://github.com/socketio/socket.io-client.git) `https://github.com/socketio/socket.io-client.git`
+- [font-awesome](https://github.com/FortAwesome/Font-Awesome.git) `https://github.com/FortAwesome/Font-Awesome.git`
+- [material-preloader](ttps://github.com/aarondo/Material-Preloader.git) `https://github.com/aarondo/Material-Preloader.git`
+- [flatpickr](https://github.com/chmln/flatpickr.git) `https://github.com/chmln/flatpickr.git`
+- [JavaScript-MD5](https://github.com/blueimp/JavaScript-MD5.git) `https://github.com/blueimp/JavaScript-MD5.git`
+- [axios](https://github.com/mzabriskie/axios.git) `https://github.com/mzabriskie/axios.git`
+- [lodash](https://github.com/lodash/lodash.git) `https://github.com/lodash/lodash.git`
+- [capslockstate-jquery-plugin](https://github.com/nosilleg/capslockstate-jquery-plugin.git) `https://github.com/nosilleg/capslockstate-jquery-plugin.git`
+- [vue-html-editor](https://github.com/Haixing-Hu/vue-html-editor.git) `https://github.com/Haixing-Hu/vue-html-editor.git`
+- [push.js](https://github.com/Nickersoft/push.js.git) `https://github.com/Nickersoft/push.js.git`
+- [dynatable](https://github.com/alfajango/jquery-dynatable.git) `https://github.com/alfajango/jquery-dynatable.git`
+- [chai](https://github.com/chaijs/chai.git) `https://github.com/chaijs/chai.git`
+- [chai-http](https://github.com/chaijs/chai-http.git) `https://github.com/chaijs/chai-http.git`
+- [localforage](https://github.com/localForage/localForage.git) `https://github.com/localForage/localForage.git`
+- [html5shiv](https://github.com/aFarkas/html5shiv.git) `https://github.com/aFarkas/html5shiv.git`
+- [respond](https://github.com/scottjehl/Respond.git) `https://github.com/scottjehl/Respond.git`
+- [vue-upload-component](https://github.com/lian-yue/vue-upload-component.git) `https://github.com/lian-yue/vue-upload-component.git`
+- [vue-dnd](https://github.com/lain-dono/vue-dnd.git) `https://github.com/lain-dono/vue-dnd.git`
+- [mongoose](https://github.com/Automattic/mongoose.git) `https://github.com/Automattic/mongoose.git`
 
 
+### Authors
 
-
-
-
-
-**authors** Kananek T. <info.dvgamer@gmail.com>"
+**Kananek T. <info.dvgamer@gmail.com>**
