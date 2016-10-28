@@ -96,24 +96,24 @@ module.exports = function(grunt) {
       },
       dev: {
         files: [{ 
-        	expand: true,  
-        	cwd:'dist/', 
-        	src: ['vendor.min.js','app.min.css', 'app.min.js'], 
-        	dest: '../Midback-Office/TravoxReservation/travoxmosWeb/dist/' 
-        }] 
+          expand: true,  
+          cwd:'dist/', 
+          src: ['vendor.min.js','app.min.css', 'app.min.js'], 
+          dest: '../Midback-Office/TravoxReservation/travoxmosWeb/dist/' 
+        }]
       }
     },
 		watch: {
 		  js: {
 		    files: ['sources/app-js/**/*.js'],
-		    tasks: ['uglify:dev'],
+		    tasks: ['uglify:dev','copy:dev'],
 		    options: {
 		      debounceDelay: 500,
 		    },
-		  },
+		  }, 
 		  css: {
 		    files: ['sources/app-scss/**/*.scss'],
-		    tasks: ['clean:scss','sass','cssmin:site'],
+		    tasks: ['clean:scss','sass','cssmin:site','copy:dev'],
 		    options: {
 		      debounceDelay: 500,
 		    },
