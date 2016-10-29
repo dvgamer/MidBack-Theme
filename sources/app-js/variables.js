@@ -7,39 +7,42 @@ window.__ = {
 			return new Promise(function(next, stopped){
 				var task = __.req.tasks.shift();
 				if(typeof task == 'function') {
-					return new Promise(task).then(function(options) {
-						// console.log('task then', options);
-						if(!options.result) {
+					return new Promise(task).then(function(obj) {
+						// console.warn('Promise then', obj);
+						if(!obj.result) {
 							throw 'response is not JSON type CallbackException';
 						} else {
-	            var cb = new CallbackException(options.result);
-							options.callback(cb.getItems || {}, cb); 
+	            var cb = new CallbackException(obj.result);
+							obj.options.callback(cb.getItems || {}, cb); 
 							next({ finish: false }); 
 						}
 
-					}).catch(function(reason) {
-						// console.log('task catch', reason)
-            var cb = new CallbackException(reason.result || reason);
-						(reason.callback || function(){ })(cb.getItems, cb); 
-						next({ finish: false, error: !reason.callback, msg: reason.result || reason });
+					}).catch(function(obj) {
+						// console.warn('Promise catch', obj);
+						if (typeof obj == 'string') {
+	            var cb = new CallbackException("Exception", obj);
+							next({ finish: false, error: true, msg: obj , cb: cb});
+						} else if(!obj.options.exception) {
+							// console.warn('Promise catch next');
+            	var cb = new CallbackException(obj.result);
+							(obj.options.callback || function(){ })(cb.getItems, cb); 
+							next({ finish: false, error: false, msg: obj.result || obj , cb: cb});
+						} else {
+							// console.warn('Promise catch stopped');
+            	var cb = new CallbackException("Exception", obj.result);
+							stopped(cb);
+						}
 					});
 				} else {
 					next({ finish: true });
 				}
 			}).then(function(task){
-				if (task.error) {
-					throw task.msg;
-				}
-
-				if(!task.finish) {
-					return __.req.run(); 
-				// } else {
-				// 	return new Promise(function(reslove, reject){
-				// 		if(!task.error) reslove(); else reject(task.error);
-				// 	});
-				} 
+				// console.warn('task then', task);
+				if (task.error) { throw task.cb; }
+				else if(!task.finish) { return __.req.run(); } 
 			}).catch(function(reason) { 
-				console.warn('Promise(run) -- run', reason);
+				// console.error('Promise(run) -- run', reason);
+				reason.throw();
 			});
 		} 
 	},

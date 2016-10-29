@@ -1,6 +1,7 @@
 window.request = function(options){ // 
 	_.defaults(options, {
 		url : location.href + /\/$/g.test(location.href) ? 'Default.aspx' : '',
+		exception: false,
 		data: { },
 		callback: function(){ }
 	}); 
@@ -9,11 +10,11 @@ window.request = function(options){ //
 		__.inst.post(options.url, {
 			data: options.data,
 		}).then(function (response) {
-			// console.log('inst', response)
-		  resolve({ callback: options.callback, result: response.data }); 
+			// console.wran('inst then', response);
+	  	resolve({ options: options, result: response.data }); 
 		}).catch(function (error) {
-			// console.log('inst', error.message || error)
-		  reject({ callback: options.callback, result: error.message || error }); 
+			// console.wran('inst catch', error.message || error)
+		  reject({ options: options, result: error.message || error }); 
 		})
   });
 
