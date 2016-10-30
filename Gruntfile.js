@@ -113,7 +113,7 @@ module.exports = function(grunt) {
 		  }, 
 		  css: {
 		    files: ['sources/app-scss/**/*.scss'],
-		    tasks: ['clean:scss','sass','cssmin:site','copy:dev'],
+		    tasks: ['clean:scss','sass','cssmin', 'concat_css','copy:dev'],
 		    options: {
 		      debounceDelay: 500,
 		    },

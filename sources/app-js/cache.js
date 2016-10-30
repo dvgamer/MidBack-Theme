@@ -42,17 +42,18 @@
 
   if (typeof define === 'function' && define.amd) {
     define([], function () {
-      root.app = factory(appCache, Events)
-      return root.app
+      root.cache = factory(appCache, Events)
+      return root.cache
     })
   } else if (typeof exports === 'object') {
     module.exports = factory(appCache, Events)
   } else {
-    root.app = factory(appCache, Events)
+    root.cache = factory(appCache, Events)
   }
+  root.cache.start();
 })(this, function (applicationCache, Events) {
-  var DEFAULT_MANIFEST_LOADER_PATH = '/appcache-loader.html'
-  var DEFAULT_CHECK_INTERVAL = 30000
+  var DEFAULT_MANIFEST_LOADER_PATH = '/cache.html'
+  var DEFAULT_CHECK_INTERVAL = 60000
 
   var app = new Events()
   var nannyOptions = {

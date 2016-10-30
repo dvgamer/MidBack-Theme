@@ -1,4 +1,39 @@
 window.TitlePage = function(page){ document.title = (page?page+' • ':'Travox ') + 'Midback Office™' }
+var cache_page = false;
+cache.on('downloading', function(sender){
+  preloader.on();
+  cache_page = true;
+});
+cache.on('progress', function(sender){ 
+  console.log(sender.loaded, sender.total); 
+});
+cache.on('cached', function(sender){ 
+  if(cache_page) {
+    preloader.off();
+    cache_page = false;
+  }
+  cache.stop();
+});
+
+cache.on('noupdate', function(){ 
+  console.log('Cache Installed.');
+  cache.stop();
+});
+
+// cache.on('start', function(){ });
+// cache.on('stop', function(){ });
+
+cache.on('update', function(){ console.log('handleUpdate'); });
+cache.on('error', function(){ console.log('handleError'); });
+cache.on('obsolete', function(){ console.log('handleObsolete'); });
+cache.on('updateready', function(){ console.log('handleUpdateready'); });
+
+
+// plus some extra ones
+cache.on('init:downloading', function(){ console.log('handleInitDownloading'); });
+cache.on('init:progress', function(){ console.log('handleInitProgress'); });
+cache.on('init:cached', function(){ console.log('handleInitCached'); });
+
 
 $(function(){
 	window.onbeforeunload = function(e) {
@@ -41,8 +76,6 @@ $(function(){
     fadeIn: 250,
     fadeOut: 250
   });
-  preloader.on();
-  setTimeout(function(){ preloader.off(); }, 400)
 
   $(window).capslockstate();
 
