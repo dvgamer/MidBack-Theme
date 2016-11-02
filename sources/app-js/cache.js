@@ -211,7 +211,7 @@
   // setup app
   //
   var noop = function () {}
-  var APPCACHE_STORE_KEY = '_appcache_nanny'
+  var APPCACHE_STORE_KEY = 'APPCACHE'
   var setupCallbacks = []
   function setup () {
     var scriptTag
@@ -237,32 +237,32 @@
       return
     }
 
-    // load the appcache-loader.html using an iframe
-    iframe = document.createElement('iframe')
-    iframe.src = nannyOptions.loaderPath
-    iframe.style.display = 'none'
-    iframe.onload = function () {
-      // we use the iFrame's applicationCache Object now
-      applicationCache = iframe.contentWindow.applicationCache
+    // // load the appcache-loader.html using an iframe
+    // iframe = document.createElement('iframe')
+    // iframe.src = nannyOptions.loaderPath
+    // iframe.style.display = 'none'
+    // iframe.onload = function () {
+    //   // we use the iFrame's applicationCache Object now
+    //   applicationCache = iframe.contentWindow.applicationCache
 
-      subscribeToEvents()
-      setupPending = false
-      setupDone = true
+    //   subscribeToEvents()
+    //   setupPending = false
+    //   setupDone = true
 
-      // adding a timeout prevented Safari 7.1.4 from throwing
-      // a InvalidStateError on the first applicationCache.update() call
-      setTimeout(function () {
-        setupCallbacks.forEach(function (callback) {
-          callback()
-        })
-      }, 100)
-    }
-    iframe.onerror = function () {
-      throw new Error('/appcache-loader.html could not be loaded.')
-    }
+    //   // adding a timeout prevented Safari 7.1.4 from throwing
+    //   // a InvalidStateError on the first applicationCache.update() call
+    //   setTimeout(function () {
+    //     setupCallbacks.forEach(function (callback) {
+    //       callback()
+    //     })
+    //   }, 100)
+    // }
+    // iframe.onerror = function () {
+    //   throw new Error('/appcache-loader.html could not be loaded.')
+    // }
 
-    scriptTag = document.getElementsByTagName('script')[0]
-    scriptTag.parentNode.insertBefore(iframe, scriptTag)
+    // scriptTag = document.getElementsByTagName('script')[0]
+    // scriptTag.parentNode.insertBefore(iframe, scriptTag)
   }
 
   //
