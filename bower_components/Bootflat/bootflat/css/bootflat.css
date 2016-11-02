@@ -7,7 +7,7 @@
  *
  * By @Flathemes <info@flathemes.com>
  *
- * Last modify time: 2016-10-06
+ * Last modify time: 2016-11-03
  *
  * Licensed under the MIT license. Please see LICENSE for more information.
  *
@@ -218,10 +218,15 @@ blockquote
     color: #434a54;
     border-color: #aab2bd !important;
 }
-.btn-default:hover, .btn-default:focus, .btn-default:active, .btn-default.active
+.btn-default:hover, .btn-default:active, .btn-default.active
 {
     border-color: #ccd1d9;
     background-color: #ccd1d9;
+}
+.btn-default:active, .btn-default:focus
+{
+    color: #434a54;
+    background-color: transparent !important;
 }
 .btn-default, .btn-default.disabled, .btn-default[disabled]
 {
@@ -243,6 +248,11 @@ blockquote
     border-color: #4fc1e9;
     background-color: #4fc1e9;
 }
+.btn-primary:active, .btn-primary:focus
+{
+    border-color: #4fc1e9 !important;
+    background-color: #4fc1e9 !important;
+}
 .open .dropdown-toggle.btn-primary
 {
     border-color: #4fc1e9;
@@ -258,6 +268,11 @@ blockquote
 {
     border-color: #48cfad;
     background-color: #48cfad;
+}
+.btn-info:active, .btn-info:focus
+{
+    border-color: #48cfad !important;
+    background-color: #48cfad !important;
 }
 .open .dropdown-toggle.btn-info
 {
@@ -275,6 +290,11 @@ blockquote
     border-color: #a0d468;
     background-color: #a0d468;
 }
+.btn-success:active, .btn-success:focus
+{
+    border-color: #a0d468 !important;
+    background-color: #a0d468 !important;
+}
 .open .dropdown-toggle.btn-success
 {
     border-color: #a0d468;
@@ -290,6 +310,11 @@ blockquote
 {
     border-color: #ffce54;
     background-color: #ffce54;
+}
+.btn-warning:active, .btn-warning:focus
+{
+    border-color: #ffce54 !important;
+    background-color: #ffce54 !important;
 }
 .open .dropdown-toggle.btn-warning
 {
@@ -307,6 +332,11 @@ blockquote
 {
     border-color: #ed5565;
     background-color: #ed5565;
+}
+.btn-danger:active, .btn-danger:focus
+{
+    border-color: #ed5565 !important;
+    background-color: #ed5565 !important;
 }
 .open .dropdown-toggle.btn-danger
 {
@@ -1367,9 +1397,9 @@ blockquote
     padding: 0 2px;
 
     content: '\e013';
-    -webkit-transition: all .25s ease-in-out;
-       -moz-transition: all .25s ease-in-out;
-            transition: all .25s ease-in-out;
+    -webkit-transition: all .15s ease-in-out;
+       -moz-transition: all .15s ease-in-out;
+            transition: all .15s ease-in-out;
 
     color: #fff;
     border: #aab2bd solid 1px;
@@ -1456,9 +1486,9 @@ blockquote
     height: 30px;
 
     content: '';
-    -webkit-transition: all .25s ease-in-out;
-       -moz-transition: all .25s ease-in-out;
-            transition: all .25s ease-in-out;
+    -webkit-transition: all .15s ease-in-out;
+       -moz-transition: all .15s ease-in-out;
+            transition: all .15s ease-in-out;
 
     -webkit-border-radius: 30px;
        -moz-border-radius: 30px;

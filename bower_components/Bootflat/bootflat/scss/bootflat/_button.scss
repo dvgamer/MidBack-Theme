@@ -93,12 +93,16 @@ $button-shadow:                  inset 0 1px 2px rgba(0, 0, 0, .125) !default;
         border-color: $button-normal !important; 
 
         &:hover, 
-        &:focus,
         &:active, 
         &.active {
           border-color: $button-normal-hover;
           background-color: $button-normal-hover;           
         } 
+        &:active, 
+        &:focus {
+          background-color: transparent !important;
+          color: $button-font-color-dark;
+        }
         &,
         &.disabled,
         &[disabled] {
@@ -125,6 +129,11 @@ $button-shadow:                  inset 0 1px 2px rgba(0, 0, 0, .125) !default;
           border-color: $button-primary-hover;
           background-color: $button-primary-hover;         
       }
+      &:active, 
+      &:focus {
+          border-color: $button-primary-hover !important;
+          background-color: $button-primary-hover !important; 
+      }
     }
     @at-root .open .dropdown-toggle.btn-primary {
         border-color: $button-primary-hover;
@@ -145,6 +154,11 @@ $button-shadow:                  inset 0 1px 2px rgba(0, 0, 0, .125) !default;
       &:focus {
           border-color: $button-info-hover;
           background-color: $button-info-hover;           
+      }
+      &:active, 
+      &:focus {
+          border-color: $button-info-hover !important;
+          background-color: $button-info-hover !important;           
       }
     }
     @at-root .open .dropdown-toggle.btn-info {
@@ -167,6 +181,11 @@ $button-shadow:                  inset 0 1px 2px rgba(0, 0, 0, .125) !default;
           border-color: $button-success-hover;
           background-color: $button-success-hover;           
       }
+      &:active, 
+      &:focus {
+          border-color: $button-success-hover !important;
+          background-color: $button-success-hover !important; 
+      }
     }
     @at-root .open .dropdown-toggle.btn-success {
         border-color: $button-success-hover;
@@ -187,6 +206,11 @@ $button-shadow:                  inset 0 1px 2px rgba(0, 0, 0, .125) !default;
       &:focus {
           border-color: $button-warning-hover;
           background-color: $button-warning-hover;          
+      }
+      &:active, 
+      &:focus {
+          border-color: $button-warning-hover !important;
+          background-color: $button-warning-hover !important; 
       }
     }
     @at-root .open .dropdown-toggle.btn-warning {
@@ -209,6 +233,11 @@ $button-shadow:                  inset 0 1px 2px rgba(0, 0, 0, .125) !default;
       &:focus {
           border-color: $button-danger-hover;
           background-color: $button-danger-hover;           
+      }
+      &:active, 
+      &:focus {
+          border-color: $button-danger-hover !important;
+          background-color: $button-danger-hover !important; 
       }
     }
     @at-root .open .dropdown-toggle.btn-danger {

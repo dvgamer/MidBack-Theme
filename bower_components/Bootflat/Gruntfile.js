@@ -73,7 +73,7 @@ module.exports = function(grunt) {
             '<%= meta.defaultPath %>/css/<%= pkg.name %>.css',
             'css/site.css'
           ],
-          '<%= meta.defaultPath %>/css/<%= pkg.name %>.min.css': '<%= meta.defaultPath %>/css/<%= pkg.name %>.css'
+          '<%= meta.defaultPath %>/css/02.<%= pkg.name %>.min.css': '<%= meta.defaultPath %>/css/<%= pkg.name %>.css'
         }
       }
     },
@@ -96,6 +96,16 @@ module.exports = function(grunt) {
       src: [
           '<%= meta.defaultPath %>/css/<%= pkg.name %>.css'
       ]
+    },
+    copy: {
+      dev: {
+        files: [{ 
+          expand: true,  
+          cwd:'<%= meta.defaultPath %>/css/', 
+          src: ['02.<%= pkg.name %>.min.css'], 
+          dest: '../../sources/css/' 
+        }]
+      }
     },
     validation: {
       options: {
@@ -129,10 +139,11 @@ module.exports = function(grunt) {
 
   require('load-grunt-tasks')(grunt);
   require('time-grunt')(grunt);
+  grunt.loadNpmTasks('grunt-contrib-copy');
 
   grunt.registerTask('task-css', ['sass', 'csscomb', 'cssmin']);
   grunt.registerTask('task-js', ['uglify']);
-  grunt.registerTask('task', ['clean', 'task-css', 'task-js']);
+  grunt.registerTask('task', ['clean', 'task-css', 'task-js', 'copy']);
   grunt.registerTask('build', ['task']);
   grunt.registerTask('default', ['task']);
   grunt.registerTask('test', ['task', 'csslint', 'validation']);
