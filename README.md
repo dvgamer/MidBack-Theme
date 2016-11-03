@@ -27,7 +27,8 @@
 - [vue-upload-component](https://github.com/lian-yue/vue-upload-component.git) `https://github.com/lian-yue/vue-upload-component.git`
 - [vue-dnd](https://github.com/lain-dono/vue-dnd.git) `https://github.com/lain-dono/vue-dnd.git`
 - [mongoose](https://github.com/Automattic/mongoose.git) `https://github.com/Automattic/mongoose.git`
-
+- [vue-sort](https://github.com/sagalbot/vue-sortable.git) `https://github.com/sagalbot/vue-sortable.git`
+- [sortable](https://github.com/RubaXa/Sortable.git)`https://github.com/RubaXa/Sortable.git`
 
 ### Authors
 

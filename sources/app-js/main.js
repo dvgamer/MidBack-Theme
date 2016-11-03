@@ -75,8 +75,7 @@ $(function(){
     col_4: '#fdba2c',
     fadeIn: 250,
     fadeOut: 250
-  });
+  }); 
 
   $(window).capslockstate();
-
 });
