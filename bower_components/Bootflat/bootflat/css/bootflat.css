@@ -7,7 +7,7 @@
  *
  * By @Flathemes <info@flathemes.com>
  *
- * Last modify time: 2016-11-03
+ * Last modify time: 2016-11-04
  *
  * Licensed under the MIT license. Please see LICENSE for more information.
  *
@@ -574,7 +574,6 @@ blockquote
 .breadcrumb
 {
     color: #434a54;
-    background-color: #e6e9ed;
 }
 .breadcrumb > .active
 {
@@ -2647,7 +2646,7 @@ a.list-group-item-danger.active, a.list-group-item-danger:hover, a.list-group-it
 }
 .jumbotron p
 {
-    font-size: 14px;
+    font-size: 12px;
 }
 @media screen and (min-width: 768px)
 {
