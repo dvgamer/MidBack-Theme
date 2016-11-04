@@ -35,6 +35,7 @@ cache.on('init:progress', function(){ console.log('handleInitProgress'); });
 cache.on('init:cached', function(){ console.log('handleInitCached'); });
 
 
+Vue.config.devtools = true;
 $(function(){
 	window.onbeforeunload = function(e) {
 	  var e = e || window.event;

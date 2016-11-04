@@ -9,6 +9,17 @@ module.exports = function(grunt) {
 		  scss: ['sources/css/site/**/*', 'sources/css/mintify/**/*'],
 		  dist: ['dist/**/*']
 		},
+    // babel: {
+    //   options: {
+    //     sourceMap: true,
+    //     presets: ['es2015']
+    //   },
+    //   dist: {
+    //     files: {
+    //       'dist/app.js': 'src/app.js'
+    //     }
+    //   }
+    // },
     uglify: {
       ie_fixed: {
         files: { 
@@ -105,14 +116,14 @@ module.exports = function(grunt) {
     },
 		watch: {
 		  js: {
-		    files: ['sources/app-js/**/*.js'],
+		    files: ['sources/js/main/*.js','sources/js/*.js','sources/app-js/**/*.js'],
 		    tasks: ['uglify:dev','copy:dev'],
 		    options: {
 		      debounceDelay: 500,
 		    },
 		  }, 
 		  css: {
-		    files: ['sources/app-scss/**/*.scss'],
+		    files: ['sources/css/*.css','sources/app-scss/**/*.scss'],
 		    tasks: ['clean:scss','sass','cssmin', 'concat_css','copy:dev'],
 		    options: {
 		      debounceDelay: 500,

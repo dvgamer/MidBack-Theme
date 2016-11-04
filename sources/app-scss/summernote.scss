@@ -1,0 +1,22 @@
+.textarea.thumb {
+	display: inline-block;
+	background-color: #e6e9ed;
+	width: 100%;
+	min-height:120px;
+}
+
+.note-editor {
+	&.note-frame.panel {
+		border-radius: 0px;
+	}
+	.note-toolbar {
+		border-radius: 0px;
+	}
+} 
+
+
+// Editor fix design
+.note-editable.panel-body, .note-editable.panel-body > p {
+
+} 
+  

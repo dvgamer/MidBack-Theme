@@ -4,8 +4,8 @@ a.logo.travox {
 	width: 210px;
 	height: 48px;
 }
-div.mos-footer {
-	font-size: 0.85rem;
+div.mos-footer > p {
+	font-size: 9px;
 }
 
 div.mos-footer > p > span {
@@ -16,6 +16,9 @@ div.mos-footer span:last-child {
 	margin-right: 0px !important;
 }
 
-.note-editable.panel-body > p {
-	font-size: 11px !important;
+
+#contact-map {
+  width: 100%;
+  height: 400px;
+	background-color: #e6e9ed;
 }
