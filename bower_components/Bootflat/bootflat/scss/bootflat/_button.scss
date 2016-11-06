@@ -95,6 +95,7 @@ $button-shadow:                  inset 0 1px 2px rgba(0, 0, 0, .125) !default;
         &:hover, 
         &:active, 
         &.active {
+          color: $button-font-color-dark;
           border-color: $button-normal-hover;
           background-color: $button-normal-hover;           
         } 
