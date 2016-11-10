@@ -39,7 +39,6 @@ Vue.config.devtools = true;
 $(function(){
 	window.onbeforeunload = function(e) {
 	  var e = e || window.event;
-		e.defaultPrevented = true;
 	  if(__.unload) {
 	    if (e) e.returnValue = 'You want leaving the page';
 	    return 'You want leaving the page';
@@ -77,6 +76,8 @@ $(function(){
     fadeIn: 250,
     fadeOut: 250
   }); 
+  var getURL = new Url;
+  window.location.query = getURL.query;
 
   $(window).capslockstate();
 });
