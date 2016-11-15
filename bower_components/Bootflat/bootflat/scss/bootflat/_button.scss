@@ -19,7 +19,7 @@ $button-info-hover:              $mint-light !default;
 $button-font-color-dark:         $darkgray-dark !default;
 $button-font-color-light:        $white !default;
 
-$button-opacity:                 45 !default;
+$button-opacity:                 70 !default;
 $button-shadow:                  inset 0 1px 2px rgba(0, 0, 0, .125) !default;
 
 // Exports
@@ -90,25 +90,43 @@ $button-shadow:                  inset 0 1px 2px rgba(0, 0, 0, .125) !default;
 
     @at-root &-default {
         color: $button-font-color-dark;
-        border-color: $button-normal !important; 
+        border-color: $button-normal-hover; 
+        background-color: transparent;   
 
-        &:hover, 
+        // &:hover, 
+        // &:active, 
+        // &.active {
+        //   color: $button-font-color-dark;
+        //   border-color: $button-normal-hover;
+        //   background-color: $button-normal-hover;           
+        // } 
+        // &:active, 
+        // &:focus {
+        //   background-color: transparent !important;
+        //   color: $button-font-color-dark;
+        // }
+        // &,
+        // &.disabled,
+        // &[disabled] {
+        //   background-color: $button-default;
+        // }
+
         &:active, 
         &.active {
-          color: $button-font-color-dark;
-          border-color: $button-normal-hover;
-          background-color: $button-normal-hover;           
-        } 
-        &:active, 
-        &:focus {
-          background-color: transparent !important;
-          color: $button-font-color-dark;
+            color: $button-font-color-dark;
         }
-        &,
+        &:hover, 
+        &:focus {
+            border-color: $button-normal;
+            color: $button-font-color-dark; 
+        }
         &.disabled,
         &[disabled] {
-          background-color: $button-default;
+            border-color: $button-normal !important; 
+            background-color: transparent !important;  
+            color: $button-font-color-dark !important;
         }
+
     }
     @at-root .open .dropdown-toggle.btn-default {
         border-color: $button-normal-hover;
@@ -244,6 +262,15 @@ $button-shadow:                  inset 0 1px 2px rgba(0, 0, 0, .125) !default;
     @at-root .open .dropdown-toggle.btn-danger {
         border-color: $button-danger-hover;
         background-color: $button-danger-hover;      
+    }
+
+    &[disabled].preload {
+      background: #FFF url(../images/preload_sm.gif) !important; 
+      background-repeat: no-repeat !important; 
+      background-position: 12px !important; 
+      padding-left: 32px !important; 
+      color: $button-font-color-dark !important;
+      cursor: default !important;
     }
   }
 }

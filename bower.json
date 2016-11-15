@@ -29,7 +29,6 @@
     "respond": "https://github.com/scottjehl/Respond.git#^1.4.2",
     "vue-upload-component": "https://github.com/lian-yue/vue-upload-component.git#next",
     "vue-dnd": "https://github.com/lain-dono/vue-dnd.git",
-    "mongoose": "https://github.com/Automattic/mongoose.git#^4.6.3",
     "vue-sortable": "https://github.com/sagalbot/vue-sortable.git#^0.1.3",
     "Sortable": "https://github.com/RubaXa/Sortable.git#^1.4.2",
     "domurl": "^2.1.7"

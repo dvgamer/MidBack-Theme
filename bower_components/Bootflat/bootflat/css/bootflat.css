@@ -7,7 +7,7 @@
  *
  * By @Flathemes <info@flathemes.com>
  *
- * Last modify time: 2016-11-05
+ * Last modify time: 2016-11-11
  *
  * Licensed under the MIT license. Please see LICENSE for more information.
  *
@@ -186,10 +186,10 @@ blockquote
 }
 .btn.disabled, .btn[disabled]
 {
-    opacity: .45;
+    opacity: .7;
     color: #434a54;
 
-    filter: alpha(opacity=45);
+    filter: alpha(opacity=70);
 }
 .btn > i.fa
 {
@@ -216,22 +216,23 @@ blockquote
 .btn-default
 {
     color: #434a54;
-    border-color: #aab2bd !important;
-}
-.btn-default:hover, .btn-default:active, .btn-default.active
-{
-    color: #434a54;
     border-color: #ccd1d9;
-    background-color: #ccd1d9;
+    background-color: transparent;
 }
-.btn-default:active, .btn-default:focus
+.btn-default:active, .btn-default.active
 {
     color: #434a54;
-    background-color: transparent !important;
 }
-.btn-default, .btn-default.disabled, .btn-default[disabled]
+.btn-default:hover, .btn-default:focus
 {
-    background-color: #fff;
+    color: #434a54;
+    border-color: #aab2bd;
+}
+.btn-default.disabled, .btn-default[disabled]
+{
+    color: #434a54 !important;
+    border-color: #aab2bd !important;
+    background-color: transparent !important;
 }
 .open .dropdown-toggle.btn-default
 {
@@ -343,6 +344,17 @@ blockquote
 {
     border-color: #ed5565;
     background-color: #ed5565;
+}
+.btn[disabled].preload
+{
+    padding-left: 32px !important;
+
+    cursor: default !important;
+
+    color: #434a54 !important;
+    background: #fff url(../images/preload_sm.gif) !important;
+    background-repeat: no-repeat !important;
+    background-position: 12px !important;
 }
 
 /**
