@@ -56,6 +56,9 @@ $search-icon-line-height:          30px !default;
   }
 
   .input-group-btn {
+      & .btn {
+        padding: 3px 6px;
+      }
       & .btn + .btn {
           border-width: 1px;
           border-style: solid;
