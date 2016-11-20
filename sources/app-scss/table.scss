@@ -1,0 +1,14 @@
+.table-customer {
+	td {
+		i {
+			font-size: 1.1em;
+	    font-weight: bold;
+			&.fa-active {
+	    	color: #30af1a;
+			}
+			&.fa-inactive {
+	    	color: #a2a2a2;
+			}
+		}
+	}
+}
