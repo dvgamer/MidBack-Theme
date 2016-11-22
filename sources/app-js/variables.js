@@ -18,18 +18,23 @@ window.__ = {
 						}
 
 					}).catch(function(obj) {
-						// console.warn('Promise catch', obj);
 						if (typeof obj == 'string') {
 	            var cb = new CallbackException("Exception", obj);
 							next({ finish: false, error: true, msg: obj , cb: cb});
-						} else if(!obj.options.exception) {
+						} else if(obj.options) {
 							// console.warn('Promise catch next');
-            	var cb = new CallbackException(obj.result);
-							(obj.options.callback || function(){ })(cb.getItems, cb); 
-							next({ finish: false, error: false, msg: obj.result || obj , cb: cb});
+							if(!obj.options.exception) {
+	            	var cb = new CallbackException(obj.result);
+								(obj.options.callback || function(){ })(cb.getItems, cb); 
+								next({ finish: false, error: false, msg: obj.result || obj , cb: cb});
+							} else {
+								// console.warn('Promise catch stopped');
+	            	var cb = new CallbackException("Exception", obj.result);
+								stopped(cb);
+							}
 						} else {
 							// console.warn('Promise catch stopped');
-            	var cb = new CallbackException("Exception", obj.result);
+            	var cb = new CallbackException("Exception", obj.toString());
 							stopped(cb);
 						}
 					});
