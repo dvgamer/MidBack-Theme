@@ -1,13 +1,30 @@
-.table-customer {
-	td {
-		i {
-			font-size: 1.1em;
-	    font-weight: bold;
-			&.fa-active {
-	    	color: #30af1a;
+.table {
+	tr {
+		&:has(> .no-transaction) {
+			background-color: #0F0 !important;
+		}
+		td {
+			&.no-transaction {
+				font-size: 1.1rem;
+				font-weight: bold;
 			}
-			&.fa-inactive {
-	    	color: #a2a2a2;
+			i {
+				font-size: 1.1em;
+		    font-weight: bold;
+				&.fa-active {
+		    	color: #30af1a;
+				}
+				&.fa-inactive {
+		    	color: #a2a2a2;
+				}
+				&.fa-loading {
+					width: 16px;
+					height: 16px;
+					background-image: url('../images/preload_sm.gif');
+					background-repeat:  no-repeat;
+			    position: absolute;
+			    margin-left: -18px
+				}
 			}
 		}
 	}
