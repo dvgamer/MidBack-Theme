@@ -34,6 +34,28 @@ th {
         line-height: @line-height-base;
         vertical-align: top;
         border-top: 1px solid @table-border-color;
+        &.tooltip, &[data-tooltip], [title] {
+          cursor: default;
+        }
+        &.tooltip-left:before, &.tooltip-right:before {
+          top: 9px !important;
+        }
+        >input[readonly], 
+        >.input-group>input[readonly] {
+          cursor: default !important;
+          width: calc(100% - 6px);
+          background-color: transparent !important;
+          border: none !important;
+          height: auto !important;
+          padding: 0px !important;
+          margin: 0px !important;
+        }
+        >.input-group {
+          button {
+            margin: -4px 0px -4px -4px;
+          }
+        }
+
       }
     }
   }
