@@ -52,7 +52,7 @@ module.exports = function(grunt) {
       }, 
       bundle: {
         files: { 
-        	'dist/bundle.js': [
+        	'dist/bundle.min.js': [
 	        	'sources/js/main/*.js',
 	        	'sources/js/*.js',
 	        	'sources/js/app/app.js'
