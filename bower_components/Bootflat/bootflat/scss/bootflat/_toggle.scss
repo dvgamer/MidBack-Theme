@@ -1,6 +1,6 @@
 // Variables
 //------------------------------------------------------
-$toggle-height:                         32px !default;
+$toggle-height:                         15px !default;
 $toggle-checkbox-opacity:               0 !default;
 
 $toggle-transition-value:               all .25s ease-in-out !default;
@@ -9,12 +9,12 @@ $toggle-default-background-color:				$white !default;
 $toggle-checked-background-color:				$grass-light !default;
 $toggle-disabled-background-color:			$lightgray-dark !default;
 
-$toggle-handle-width:						50px !default;
-$toggle-handle-height:					32px !default;
+$toggle-handle-width:						37px !default;
+$toggle-handle-height:					16px !default;
 $toggle-handle-radius:					19px !default;
 
-$toggle-control-width:					30px !default;
-$toggle-control-height:					30px !default;
+$toggle-control-width:					16px !default;
+$toggle-control-height:					16px !default;
 $toggle-control-radius:					30px !default;
 
 $toggle-shadow:                         inset 0 0 0 1px lighten($mediumgray-dark, 5%) !default;
@@ -32,7 +32,6 @@ $toggle-checked-shadow:                 inset 0 0 0 1px $lightgray-light, 1px 1p
    */
   .toggle {
 	height: $toggle-height;
-
 	& input[type="checkbox"],
 	& input[type="radio"] {
 		width: 0;
@@ -52,21 +51,24 @@ $toggle-checked-shadow:                 inset 0 0 0 1px $lightgray-light, 1px 1p
 		height: $toggle-handle-height;
 		background-color: $toggle-default-background-color;
 		@include radius($value: $toggle-handle-radius);
-		@include box-shadow($value:$toggle-shadow);
+    border: lighten($mediumgray-dark, 10%) solid 1px;
+		// @include box-shadow($value:$toggle-shadow);
 
 		&:before,
 		&:after {
+			cursor: pointer;
 			content: "";
 			position: absolute;
-			top: 1px;
-			left: 1px;
+			top: -1px;
+			left: -1px;
 			display: block;
 			width: $toggle-control-width;
 			height: $toggle-control-height;
 			@include radius($value: $toggle-control-radius);
 			@include transition($toggle-transition-value);
 			background-color: $toggle-default-background-color;
-			@include box-shadow($value:$toggle-control-shadow);
+	    border: lighten($mediumgray-dark, 10%) solid 1px;
+			// @include box-shadow($value:$toggle-control-shadow);
 		}
 
 	}
@@ -88,7 +90,7 @@ $toggle-checked-shadow:                 inset 0 0 0 1px $lightgray-light, 1px 1p
 	& input[type="checkbox"]:checked + .handle:after,
 	& input[type="radio"]:checked + .handle:after {
 		left: 20px;
-		@include box-shadow($value:$toggle-checked-shadow);
+		// @include box-shadow($value:$toggle-checked-shadow);
 	}
   }
 }

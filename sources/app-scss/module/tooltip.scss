@@ -72,7 +72,8 @@
   content: attr(data-tooltip);
   font-size: 0.9em;
   line-height: 1.2;
-  max-width: 160px;
+  width: attr(width-tooltip);
+  max-width: 200px;
   min-width: 140px;
 }
 

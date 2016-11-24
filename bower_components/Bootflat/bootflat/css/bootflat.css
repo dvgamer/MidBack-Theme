@@ -7,7 +7,7 @@
  *
  * By @Flathemes <info@flathemes.com>
  *
- * Last modify time: 2016-11-23
+ * Last modify time: 2016-11-24
  *
  * Licensed under the MIT license. Please see LICENSE for more information.
  *
@@ -327,23 +327,23 @@ blockquote
 .btn-danger .open .dropdown-toggle.btn
 {
     color: #fff;
-    border-color: #da4453;
-    background-color: #da4453;
+    border-color: #c0392b;
+    background-color: #c0392b;
 }
 .btn-danger:hover, .btn-danger:focus
 {
-    border-color: #ed5565;
-    background-color: #ed5565;
+    border-color: #e74c3c;
+    background-color: #e74c3c;
 }
 .btn-danger:active, .btn-danger:focus
 {
-    border-color: #ed5565 !important;
-    background-color: #ed5565 !important;
+    border-color: #e74c3c !important;
+    background-color: #e74c3c !important;
 }
 .open .dropdown-toggle.btn-danger
 {
-    border-color: #ed5565;
-    background-color: #ed5565;
+    border-color: #e74c3c;
+    background-color: #e74c3c;
 }
 .btn[disabled].preload
 {
@@ -389,7 +389,7 @@ blockquote
 }
 .btn-group .btn-danger, .btn-group .btn-danger:focus, .btn-group .btn-danger:active, .btn-group .btn-danger.active
 {
-    border-left-color: #d1293a;
+    border-left-color: #a33024;
 }
 .btn-group .btn-info, .btn-group .btn-info:focus, .btn-group .btn-info:active, .btn-group .btn-info.active
 {
@@ -418,7 +418,7 @@ blockquote
 }
 .btn-group-vertical .btn-danger, .btn-group-vertical .btn-danger:focus, .btn-group-vertical .btn-danger:active, .btn-group-vertical .btn-danger.active, .btn-group-vertical .btn-group .btn-danger
 {
-    border-top-color: #d1293a !important;
+    border-top-color: #a33024 !important;
 }
 .btn-group-vertical .btn-info, .btn-group-vertical .btn-info:focus, .btn-group-vertical .btn-info:active, .btn-group-vertical .btn-info.active, .btn-group-vertical .btn-group .btn-info
 {
@@ -464,8 +464,8 @@ blockquote
 .label-danger,
 .badge-danger
 {
-    border-color: #da4453;
-    background-color: #da4453;
+    border-color: #c0392b;
+    background-color: #c0392b;
 }
 
 .label-warning,
@@ -577,7 +577,7 @@ blockquote
 }
 .progress-bar-danger
 {
-    background-color: #da4453;
+    background-color: #c0392b;
 }
 
 /**
@@ -823,7 +823,7 @@ blockquote
 }
 .input-group-btn .btn + .btn.btn-danger
 {
-    border-color: #d1293a;
+    border-color: #a33024;
 }
 
 .input-group-addon
@@ -953,30 +953,30 @@ blockquote
 
 .has-error .help-block, .has-error .control-label, .has-error .radio, .has-error .checkbox, .has-error .radio-inline, .has-error .checkbox-inline
 {
-    color: #da4453;
+    color: #c0392b;
 }
 .has-error .form-control
 {
-    border-color: #da4453;
+    border-color: #c0392b;
     -webkit-box-shadow: none;
        -moz-box-shadow: none;
             box-shadow: none;
 }
 .has-error .form-control:focus
 {
-    border-color: #da4453;
+    border-color: #c0392b;
     -webkit-box-shadow: none;
        -moz-box-shadow: none;
             box-shadow: none;
 }
 .has-error .input-group-addon
 {
-    border-color: #da4453;
-    background-color: #da4453;
+    border-color: #c0392b;
+    background-color: #c0392b;
 }
 .has-error .form-control-feedback
 {
-    color: #da4453;
+    color: #c0392b;
 }
 
 /**
@@ -1456,7 +1456,7 @@ blockquote
  */
 .toggle
 {
-    height: 32px;
+    height: 15px;
 }
 .toggle input[type='checkbox'], .toggle input[type='radio']
 {
@@ -1479,40 +1479,37 @@ blockquote
 
     display: block;
 
-    width: 50px;
-    height: 32px;
+    width: 37px;
+    height: 16px;
 
+    border: #c7ccd3 solid 1px;
     -webkit-border-radius: 19px;
        -moz-border-radius: 19px;
             border-radius: 19px;
     background-color: #fff;
-    -webkit-box-shadow: inset 0 0 0 1px #b8bfc8;
-       -moz-box-shadow: inset 0 0 0 1px #b8bfc8;
-            box-shadow: inset 0 0 0 1px #b8bfc8;
 }
 .toggle .handle:before, .toggle .handle:after
 {
     position: absolute;
-    top: 1px;
-    left: 1px;
+    top: -1px;
+    left: -1px;
 
     display: block;
 
-    width: 30px;
-    height: 30px;
+    width: 16px;
+    height: 16px;
 
-    content: '';
+    content: '';
+    cursor: pointer;
     -webkit-transition: all .15s ease-in-out;
        -moz-transition: all .15s ease-in-out;
             transition: all .15s ease-in-out;
 
+    border: #c7ccd3 solid 1px;
     -webkit-border-radius: 30px;
        -moz-border-radius: 30px;
             border-radius: 30px;
     background-color: #fff;
-    -webkit-box-shadow: inset 0 0 0 1px #b8bfc8, 1px 1px 1px #c7ccd3;
-       -moz-box-shadow: inset 0 0 0 1px #b8bfc8, 1px 1px 1px #c7ccd3;
-            box-shadow: inset 0 0 0 1px #b8bfc8, 1px 1px 1px #c7ccd3;
 }
 .toggle input[type='checkbox']:disabled + .handle, .toggle input[type='radio']:disabled + .handle, .toggle input[type='checkbox']:disabled + .handle:before, .toggle input[type='radio']:disabled + .handle:before, .toggle input[type='checkbox']:disabled + .handle:after, .toggle input[type='radio']:disabled + .handle:after
 {
@@ -1523,17 +1520,13 @@ blockquote
 }
 .toggle input[type='checkbox']:checked + .handle:before, .toggle input[type='radio']:checked + .handle:before
 {
-    width: 50px;
+    width: 37px;
 
     background-color: #a0d468;
 }
 .toggle input[type='checkbox']:checked + .handle:after, .toggle input[type='radio']:checked + .handle:after
 {
     left: 20px;
-
-    -webkit-box-shadow: inset 0 0 0 1px #f5f7fa, 1px 1px 1px #c7ccd3;
-       -moz-box-shadow: inset 0 0 0 1px #f5f7fa, 1px 1px 1px #c7ccd3;
-            box-shadow: inset 0 0 0 1px #f5f7fa, 1px 1px 1px #c7ccd3;
 }
 
 /**
@@ -1548,7 +1541,7 @@ blockquote
     -webkit-border-radius: 4px;
        -moz-border-radius: 4px;
             border-radius: 4px;
-    background-color: #fd9883;
+    background-color: #ff6a07;
     -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, .2);
        -moz-box-shadow: 0 1px 2px rgba(0, 0, 0, .2);
             box-shadow: 0 1px 2px rgba(0, 0, 0, .2);
@@ -1618,15 +1611,15 @@ blockquote
 }
 .calendar .years .prev em:hover, .calendar .years .next em:hover, .calendar .years .prev em:active, .calendar .years .next em:active
 {
-    border-color: #e9573f;
+    border-color: #e67e22;
 }
 .calendar .years .prev em:hover:before, .calendar .years .prev em:active:before
 {
-    border-color: transparent #e9573f transparent transparent;
+    border-color: transparent #e67e22 transparent transparent;
 }
 .calendar .years .next em:hover:before, .calendar .years .next em:active:before
 {
-    border-color: transparent transparent transparent #e9573f;
+    border-color: transparent transparent transparent #e67e22;
 }
 .calendar .years .monyear
 {
@@ -1644,7 +1637,7 @@ blockquote
     margin-top: 15px;
     padding-top: 15px;
 
-    border-top: 1px solid #ee7f6d;
+    border-top: 1px solid #eb9950;
 }
 .calendar .days .unit
 {
@@ -1675,7 +1668,7 @@ blockquote
        -moz-transition: all .2s ease-in-out;
             transition: all .2s ease-in-out;
 
-    color: #e9573f;
+    color: #e67e22;
     background-color: #fff;
 }
 .calendar .days .unit.older b
@@ -1685,7 +1678,7 @@ blockquote
 
     cursor: default;
 
-    color: #e9573f;
+    color: #e67e22;
     background-color: transparent;
 }
 
@@ -1859,8 +1852,8 @@ blockquote
 }
 .alert-danger
 {
-    border: #ed5565;
-    background-color: #f2838f;
+    border: #e74c3c;
+    background-color: #ed7669;
 }
 .alert-success
 {
@@ -2466,9 +2459,9 @@ a.list-group-item-info.active, a.list-group-item-info:hover, a.list-group-item-i
 
 .list-group-item-danger
 {
-    color: #e8273b;
-    border-color: #da4453 transparent transparent transparent;
-    background-color: #ed5565;
+    color: #d62c1a;
+    border-color: #c0392b transparent transparent transparent;
+    background-color: #e74c3c;
 }
 .list-group-item-danger:first-child
 {
@@ -2476,17 +2469,17 @@ a.list-group-item-info.active, a.list-group-item-info:hover, a.list-group-item-i
 }
 a.list-group-item-danger
 {
-    color: #99101f;
+    color: #7b190f;
 }
 a.list-group-item-danger:hover, a.list-group-item-danger:focus
 {
     color: #fff;
-    background-color: #da4453;
+    background-color: #c0392b;
 }
 a.list-group-item-danger.active, a.list-group-item-danger:hover, a.list-group-item-danger:focus
 {
-    border-color: #ed5565 transparent transparent transparent;
-    background-color: #da4453;
+    border-color: #e74c3c transparent transparent transparent;
+    background-color: #c0392b;
 }
 
 /**
@@ -2787,13 +2780,13 @@ a.list-group-item-danger.active, a.list-group-item-danger:hover, a.list-group-it
 }
 .panel-danger
 {
-    border-color: #da4453;
+    border-color: #c0392b;
 }
 .panel-danger > .panel-heading
 {
     color: #fff;
-    border-color: #da4453;
-    background-color: #da4453;
+    border-color: #c0392b;
+    background-color: #c0392b;
 }
 .panel-primary > .panel-heading > .panel-title, .panel-success > .panel-heading > .panel-title, .panel-info > .panel-heading > .panel-title, .panel-warning > .panel-heading > .panel-title, .panel-danger > .panel-heading > .panel-title
 {

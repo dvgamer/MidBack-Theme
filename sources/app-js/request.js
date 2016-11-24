@@ -1,6 +1,9 @@
 window.request = function(options){ // 
+	var main = location.href.substring(0, location.href.indexOf('/operation/') + '/operation/'.length)
+	if(options.url) { options.url = main + (options.url).replace(/^\//g,''); }
+
 	_.defaults(options, {
-		url : location.href + /\/$/g.test(location.href) ? 'Default.aspx' : '',
+		url : /\/$/g.test(location.href) ? location.href + 'Default.aspx' : '',
 		api: false,
 		exception: false,
 		data: { },
