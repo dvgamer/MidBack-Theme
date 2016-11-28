@@ -5,9 +5,16 @@ cache.on('downloading', function(sender){
   cache_page = true;
 });
 cache.on('progress', function(sender){ 
-  console.log(sender.loaded, sender.total); 
+  // console.log(sender.loaded, sender.total); 
 });
 cache.on('cached', function(sender){ 
+  if(cache_page) {
+    preloader.off();
+    cache_page = false;
+  }
+  cache.stop();
+});
+cache.on('updateready', function(){ 
   if(cache_page) {
     preloader.off();
     cache_page = false;
@@ -26,12 +33,11 @@ cache.on('noupdate', function(){
 cache.on('update', function(){ console.log('handleUpdate'); });
 cache.on('error', function(){ console.log('handleError'); });
 cache.on('obsolete', function(){ console.log('handleObsolete'); });
-cache.on('updateready', function(){ console.log('handleUpdateready'); });
 
 
 // plus some extra ones
 cache.on('init:downloading', function(){ console.log('handleInitDownloading'); });
-cache.on('init:progress', function(){ console.log('handleInitProgress'); });
+// cache.on('init:progress', function(){ console.log('handleInitProgress'); });
 cache.on('init:cached', function(){ console.log('handleInitCached'); });
 
 
@@ -46,21 +52,21 @@ $(function(){
 	}
 	// $(document).on("keydown", function(e) { if ((e.which || e.keyCode) == 116) e.preventDefault(); });
 
-  var checkNotify = setInterval(function() {
+  var GrantNotificationCheck = setInterval(function() {
   	var noti = {
 
   	}
     if (!("Notification" in window)) {
-      new Notification("Hi there!", noti);
+      clearInterval(GrantNotificationCheck);
     } else if (Notification.permission === "granted") {
-      clearInterval(checkNotify);
+      clearInterval(GrantNotificationCheck);
     } else if (Notification.permission !== 'denied') {
       Notification.requestPermission(function (permission) {
         if(!('permission' in Notification)) Notification.permission = permission;
         if (permission !== "granted") {
       		new Notification("Hi there!", noti);
         } else {
-          clearInterval(checkNotify);
+          clearInterval(GrantNotificationCheck);
         }
       });
     }
