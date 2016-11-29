@@ -68,7 +68,6 @@ th {
   // Bottom align for column headings
   > thead > tr > th {
     vertical-align: bottom;
-    border-bottom: 2px solid @table-border-color;
   }
   // Remove top border from thead by default
   > caption + thead,
@@ -84,6 +83,52 @@ th {
   // Account for multiple tbody instances
   > tbody + tbody {
     border-top: 2px solid @table-border-color;
+  }
+  > tbody {
+    > tr:last-child {
+      > th,
+      > td {
+          border-bottom: 1px solid #d4dde4;
+        // e6eaef #f8f9fa
+      }
+    }
+  }
+  > tfoot {
+    > tr:first-child {
+      > th,
+      > td {
+          border-bottom: 1px solid #f8f9fa;
+        // e6eaef #f8f9fa
+      }
+    }
+  }
+
+  > thead > tr {
+    > th {
+      padding: 5px 8px 5px 4px !important;
+      background-color: #e9edf1 !important;
+      border-bottom: solid 2px #d4dde4 !important;
+      a {
+        font-weight: bold !important;
+        &,
+        &:active,
+        &:hover,
+        &:focus {
+          color: #666;
+        }
+        &:hover
+        &:active, {
+          text-decoration: underline;
+        }
+
+      }
+      > i.fa {
+        color: #666;
+        font-size: 1.2rem;
+        position: absolute;
+        margin: 2px 0 0 3px;
+      }
+    }
   }
 
   // Nesting

@@ -1,3 +1,15 @@
+window.MBOS = {
+	Name: function(){
+		return (/Name=(.*?)(;|$)/g.exec(document.cookie) || [])[1];
+	},
+	Code: function(){
+		return (/CLIENT_STATE=(.*?(\w{3}))(;|$)/g.exec(document.cookie) || [])[2];
+	},
+	CLIENT: function(){
+		return (/CLIENT_STATE=(.*?(\w{3}))(;|$)/g.exec(document.cookie) || [])[1];
+	}
+}
+
 window.__ = {
 	unload: false,
 	req: {

@@ -53,9 +53,6 @@ $(function(){
 	// $(document).on("keydown", function(e) { if ((e.which || e.keyCode) == 116) e.preventDefault(); });
 
   var GrantNotificationCheck = setInterval(function() {
-  	var noti = {
-
-  	}
     if (!("Notification" in window)) {
       clearInterval(GrantNotificationCheck);
     } else if (Notification.permission === "granted") {
@@ -64,7 +61,10 @@ $(function(){
       Notification.requestPermission(function (permission) {
         if(!('permission' in Notification)) Notification.permission = permission;
         if (permission !== "granted") {
-      		new Notification("Hi there!", noti);
+      		new Notification("Travox Midback Office™", {
+            iconUrl: '/mos_V2/operation/dist/icon/mbos-Icon-72.png',
+            message: 'Welcome to Web Booking Engine by Nippon SySits.'
+          });
         } else {
           clearInterval(GrantNotificationCheck);
         }

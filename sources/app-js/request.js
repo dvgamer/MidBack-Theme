@@ -38,9 +38,11 @@ window.request = function(options){ //
 		__.inst.post(options.url, {
 			data: options.data,
 		}).then(function (response) {
+			// console.wran('inst then', response);
       var cb = new CallbackException(response.data);
 		  options.callback(cb.getItems, cb);
 		}).catch(function (error) {
+			// console.wran('inst catch', error.message || error)
       var cb = new CallbackException(error.message || error);
 		  options.callback(cb.getItems, cb); 
 		})

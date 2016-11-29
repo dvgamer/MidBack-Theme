@@ -29,6 +29,7 @@
 - [vue-sort](https://github.com/sagalbot/vue-sortable.git) `https://github.com/sagalbot/vue-sortable.git`
 - [sortable](https://github.com/RubaXa/Sortable.git)`https://github.com/RubaXa/Sortable.git`
 - [domurl](https://github.com/Mikhus/domurl.git)`https://github.com/Mikhus/domurl.git`
+- [console-normalizer](https://github.com/Zenovations/console-normalizer.git)`https://github.com/Zenovations/console-normalizer.git`
 
 ### Authors
 
