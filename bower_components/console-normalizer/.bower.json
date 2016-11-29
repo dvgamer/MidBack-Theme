@@ -1,0 +1,14 @@
+{
+  "name": "console-normalizer",
+  "homepage": "https://github.com/Zenovations/console-normalizer",
+  "_release": "4fec8f74b9",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "4fec8f74b91fab93a6ad45d178d217fb74308634"
+  },
+  "_source": "https://github.com/Zenovations/console-normalizer.git",
+  "_target": "*",
+  "_originalSource": "https://github.com/Zenovations/console-normalizer.git",
+  "_direct": true
+}
