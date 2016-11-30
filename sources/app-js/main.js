@@ -46,9 +46,9 @@ $(function(){
 	window.onbeforeunload = function(e) {
 	  var e = e || window.event;
 	  if(__.unload) {
-	    if (e) e.returnValue = 'You want leaving the page';
-	    return 'You want leaving the page';
-	  }
+	    if (e) e.returnValue = 'Are you sure you want to leave this page?';
+	    return 'Are you sure you want to leave this page?';
+    }
 	}
 	// $(document).on("keydown", function(e) { if ((e.which || e.keyCode) == 116) e.preventDefault(); });
 

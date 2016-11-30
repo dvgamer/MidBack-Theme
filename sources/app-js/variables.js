@@ -7,6 +7,10 @@ window.MBOS = {
 	},
 	CLIENT: function(){
 		return (/CLIENT_STATE=(.*?(\w{3}))(;|$)/g.exec(document.cookie) || [])[1];
+	},
+	Expired: function(){
+		var _demo = (/CUSTOMER_CODE=(.*?)(;|$)/g.exec(document.cookie) || [])[1], _v2 	= (/a74cf3c525a85182a1517c9758f4a245=(.*?)(;|$)/g.exec(document.cookie) || [])[1];
+		return _demo == undefined && _v2 == undefined;
 	}
 }
 

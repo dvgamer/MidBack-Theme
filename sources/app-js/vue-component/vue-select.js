@@ -1,4 +1,4 @@
-window.VueSelect = {
+window.getVue.Select = {
 	template: ['<div class="dropdown v-select" :class="dropdownClasses">',
 			'<div ref="toggle" @mousedown.prevent="toggleDropdown" class="dropdown-toggle clearfix" type="button">',
 	        '<span class="form-control" v-if="!searchable && isValueEmpty">',
