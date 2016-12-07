@@ -2,6 +2,7 @@
 //------------------------------------------------------
 $dropdown-background-color:               $darkgray-dark !default;
 $dropdown-background-color-hover:         $darkgray-light !default;
+$dropdown-border:                         $mediumgray-light !default;
 
 $dropdown-normal:                         $mediumgray-dark !default;
 $dropdown-default:                        $white !default;
@@ -26,36 +27,43 @@ $dropdown-font-weight:                    700 !default;
    */
   .dropdown-menu {
       border: none;
-      background-color: $dropdown-background-color;
+      // background-color: $dropdown-background-color;
 
       & .dropdown-header {
           padding: $dropdown-padding;
           font-size: $dropdown-font-size;
           font-weight: $dropdown-font-weight;
-          color: $dropdown-normal;
+          // color: $dropdown-normal;
       }
 
       & li a {
           padding: $dropdown-padding;
-          color: $dropdown-font-color-light;
+          // color: $dropdown-font-color-light;
+          border-bottom-color: $dropdown-border;
+          border-bottom-style: solid;
+          border-bottom-width: 1px;
+          &:last-child {
+            border-bottom-color: transparent;
+            border-bottom-width: 0px;
+          }
       }
       & li a:hover,
       & li a:focus,
       & .active a,
       & .active a:hover,
       & .active a:focus{
-          color: $dropdown-font-color-light;
-          background-color: $dropdown-background-color-hover;
+          // color: $dropdown-font-color-light;
+          // background-color: $dropdown-background-color-hover;
           outline: none;
       }
       & .disabled a,
       & .disabled a:hover,
       & .disabled a:focus {
-          color: $dropdown-background-color-hover;
+          // color: $dropdown-background-color-hover;
           cursor: default;
       }
       & .divider {
-          background-color: $dropdown-background-color-hover;
+          // background-color: $dropdown-background-color-hover;
           border-bottom: none;
       }
 
@@ -102,10 +110,10 @@ $dropdown-font-weight:                    700 !default;
           margin-right: -10px;
       }
       @at-root .dropdown-default & > a:after {
-          border-left-color: $dropdown-font-color-dark;
+          // border-left-color: $dropdown-font-color-dark;
       }
       &:hover a:after {
-          border-left-color: $dropdown-default;
+          // border-left-color: $dropdown-default;
       }
       &.pull-left {
           float: none;

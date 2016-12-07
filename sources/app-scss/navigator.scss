@@ -32,13 +32,12 @@ ul.nav {
 
 	&.navbar-middle {
 		max-height: 70px;
-		> p {
-	    position: absolute;
-      right: 5px;
-	    bottom: 20px;
-	    font-size: 11px;
-		}
-	}
+    padding-top: 42px;
+    text-align: right;
+ 		>li {
+ 			display: inline-block;
+ 		}
+   }
 
 	&.navbar-bottom {
  		>li {

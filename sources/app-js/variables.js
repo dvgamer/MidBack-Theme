@@ -3,7 +3,7 @@ window.MBOS = {
 		return (/Name=(.*?)(;|$)/g.exec(document.cookie) || [])[1];
 	},
 	Code: function(){
-		return (/CLIENT_STATE=(.*?(\w{3}))(;|$)/g.exec(document.cookie) || [])[2];
+		return (/CLIENT_STATE=\w{2}(.*?)(;|$)/g.exec(document.cookie) || [])[1];
 	},
 	CLIENT: function(){
 		return (/CLIENT_STATE=(.*?(\w{3}))(;|$)/g.exec(document.cookie) || [])[1];
@@ -13,10 +13,10 @@ window.MBOS = {
 		return _demo == undefined && _v2 == undefined;
 	},
 	getItem: function(key, cb){
-		return __.local.getItem(key, cb);
+		return __.local.getItem((this.CLIENT()?this.CLIENT()+'->':'')+key, cb);
 	},
 	setItem: function(key, value, cb){
-		return __.local.setItem(key, value, cb);
+		return __.local.setItem((this.CLIENT()?this.CLIENT()+'->':'')+key, value, cb);
 	}
 }
 

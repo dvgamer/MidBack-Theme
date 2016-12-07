@@ -7,7 +7,7 @@
  *
  * By @Flathemes <info@flathemes.com>
  *
- * Last modify time: 2016-11-29
+ * Last modify time: 2016-12-08
  *
  * Licensed under the MIT license. Please see LICENSE for more information.
  *
@@ -3206,7 +3206,6 @@ a.list-group-item-danger.active, a.list-group-item-danger:hover, a.list-group-it
 .dropdown-menu
 {
     border: none;
-    background-color: #434a54;
 }
 .dropdown-menu .dropdown-header
 {
@@ -3214,31 +3213,31 @@ a.list-group-item-danger.active, a.list-group-item-danger:hover, a.list-group-it
     font-weight: 700;
 
     padding: 5px 20px;
-
-    color: #aab2bd;
 }
 .dropdown-menu li a
 {
     padding: 5px 20px;
 
-    color: #fff;
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+    border-bottom-color: #ccd1d9;
+}
+.dropdown-menu li a:last-child
+{
+    border-bottom-width: 0;
+    border-bottom-color: transparent;
 }
 .dropdown-menu li a:hover, .dropdown-menu li a:focus, .dropdown-menu .active a, .dropdown-menu .active a:hover, .dropdown-menu .active a:focus
 {
-    color: #fff;
     outline: none;
-    background-color: #656d78;
 }
 .dropdown-menu .disabled a, .dropdown-menu .disabled a:hover, .dropdown-menu .disabled a:focus
 {
     cursor: default;
-
-    color: #656d78;
 }
 .dropdown-menu .divider
 {
     border-bottom: none;
-    background-color: #656d78;
 }
 .dropup .dropdown-menu
 {
@@ -3300,14 +3299,6 @@ a.list-group-item-danger.active, a.list-group-item-danger:hover, a.list-group-it
     border-width: 5px 0 5px 5px;
     border-style: solid;
     border-color: transparent;
-    border-left-color: #fff;
-}
-.dropdown-default .dropdown-submenu > a:after
-{
-    border-left-color: #434a54;
-}
-.dropdown-submenu:hover a:after
-{
     border-left-color: #fff;
 }
 .dropdown-submenu.pull-left
