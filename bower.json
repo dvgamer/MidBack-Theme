@@ -15,7 +15,6 @@
     "socket.io-client": "https://github.com/socketio/socket.io-client.git#^1.4.8",
     "components-font-awesome": "^4.6.3",
     "material-preloader": "https://github.com/aarondo/Material-Preloader.git",
-    "flatpickr": "flatpickr-calendar#^2.0.2",
     "JavaScript-MD5": "https://github.com/blueimp/JavaScript-MD5.git#^2.3.1",
     "axios": "^0.14.0",
     "lodash": "https://github.com/lodash/lodash.git#^4.16.4",
@@ -32,6 +31,7 @@
     "vue-sortable": "https://github.com/sagalbot/vue-sortable.git#^0.1.3",
     "Sortable": "https://github.com/RubaXa/Sortable.git#^1.4.2",
     "domurl": "^2.1.7",
-    "vue-select": "https://github.com/sagalbot/vue-select.git#^1.3.3"
+    "vue-select": "https://github.com/sagalbot/vue-select.git#^1.3.3",
+    "chart.js": "^2.4.0"
   }
 }

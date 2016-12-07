@@ -11,10 +11,17 @@ window.MBOS = {
 	Expired: function(){
 		var _demo = (/CUSTOMER_CODE=(.*?)(;|$)/g.exec(document.cookie) || [])[1], _v2 	= (/a74cf3c525a85182a1517c9758f4a245=(.*?)(;|$)/g.exec(document.cookie) || [])[1];
 		return _demo == undefined && _v2 == undefined;
+	},
+	getItem: function(key, cb){
+		return __.local.getItem(key, cb);
+	},
+	setItem: function(key, value, cb){
+		return __.local.setItem(key, value, cb);
 	}
 }
 
 window.__ = {
+	local: localforage.createInstance({ name: location.hostname == 'localhost' ? 'develop' : 'production' }),
 	unload: false,
 	req: {
 		stopped: true,

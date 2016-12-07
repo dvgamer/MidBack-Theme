@@ -41,7 +41,7 @@ cache.on('init:downloading', function(){ console.log('handleInitDownloading'); }
 cache.on('init:cached', function(){ console.log('handleInitCached'); });
 
 
-Vue.config.devtools = true;
+Vue.config.devtools = location.hostname === 'localhost';
 $(function(){
 	window.onbeforeunload = function(e) {
 	  var e = e || window.event;
@@ -71,6 +71,15 @@ $(function(){
       });
     }
   }, 100);
+
+  localforage.config({
+      driver      : localforage.WEBSQL, // Force WebSQL; same as using setDriver()
+      name        : 'Travox-MBOS',
+      version     : 1.0,
+      size        : 4980736, // Size of database, in bytes. WebSQL-only for now.
+      storeName   : 'keyvaluepairs', // Should be alphanumeric, with underscores.
+      description : 'Travox MidBack Office data warehouse.'
+  });
 
   window.preloader = new $.materialPreloader({
     position: 'top',
