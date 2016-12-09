@@ -59,6 +59,19 @@ $panel-radius:                  4px !default;
         background-color: $panel-normal;
         border-color: $panel-normal;
       }
+      & > table.table {
+        > thead {
+          > tr {
+            background-color: $panel-normal;
+            a {
+              color: $panel-font-color !important;
+            }
+            i {
+              color: $panel-font-color !important;
+            }
+          }
+        }
+      }
     }
     @at-root &-primary {
       border-color: $panel-primary;
@@ -67,6 +80,20 @@ $panel-radius:                  4px !default;
         background-color: $panel-primary;
         border-color: $panel-primary;
       }
+      & > table.table {
+        > thead {
+          > tr {
+            background-color: $panel-primary;
+            a {
+              color: #FFFFFF !important;
+            }
+            i {
+              color: #FFFFFF !important;
+            }
+          }
+        }
+      }
+
     }
     @at-root &-success {
       border-color: $panel-success;
@@ -75,6 +102,20 @@ $panel-radius:                  4px !default;
         background-color: $panel-success;
         border-color: $panel-success;
       }
+      & > table.table {
+        > thead {
+          > tr {
+            background-color: $panel-success;
+            a {
+              color: #FFFFFF !important;
+            }
+            i {
+              color: #FFFFFF !important;
+            }
+          }
+        }
+      }
+
     }
     @at-root &-info {
       border-color: $panel-info;
@@ -83,6 +124,20 @@ $panel-radius:                  4px !default;
         background-color: $panel-info;
         border-color: $panel-info;
       }
+      & > table.table {
+        > thead {
+          > tr {
+            background-color: $panel-info;
+            a {
+              color: #FFFFFF !important;
+            }
+            i {
+              color: #FFFFFF !important;
+            }
+          }
+        }
+      }
+
     }
     @at-root &-warning {
       border-color: $panel-warning;
@@ -91,6 +146,20 @@ $panel-radius:                  4px !default;
         background-color: $panel-warning;
         border-color: $panel-warning;
       }
+      & > table.table {
+        > thead {
+          > tr {
+            background-color: $panel-warning;
+            a {
+              color: #FFFFFF !important;
+            }
+            i {
+              color: #FFFFFF !important;
+            }
+          }
+        }
+      }
+
     }
     @at-root &-danger {
       border-color: $panel-danger;
@@ -99,6 +168,20 @@ $panel-radius:                  4px !default;
         background-color: $panel-danger;
         border-color: $panel-danger;
       }
+      & > table.table {
+        > thead {
+          > tr {
+            background-color: $panel-danger;
+            a {
+              color: #FFFFFF !important;
+            }
+            i {
+              color: #FFFFFF !important;
+            }
+          }
+        }
+      }
+
     }
 
     @at-root &-primary > &-heading > &-title,

@@ -1,0 +1,20 @@
+.panel {
+	> .panel-heading {
+		> .panel-title {
+			display: inline-block;
+			> i.fa {
+		    font-size: 1.49rem;
+			} 
+		}
+		em {
+			opacity: 0.8;
+	    padding-left: 10px;
+			&:before {
+		    content: '_';
+		    display: inline-block;
+		    margin: -4px 0 0 -8px;
+		    position: absolute;
+		  }
+		}
+	}
+}

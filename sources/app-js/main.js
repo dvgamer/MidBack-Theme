@@ -81,6 +81,13 @@ $(function(){
       description : 'Travox MidBack Office data warehouse.'
   });
 
+  localforage.getItem('VERSION', function(err, data){
+    if(data) {
+
+    }
+    
+  });
+
   window.preloader = new $.materialPreloader({
     position: 'top',
     height: '4px',

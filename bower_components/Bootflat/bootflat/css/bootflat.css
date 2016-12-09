@@ -7,7 +7,7 @@
  *
  * By @Flathemes <info@flathemes.com>
  *
- * Last modify time: 2016-12-08
+ * Last modify time: 2016-12-09
  *
  * Licensed under the MIT license. Please see LICENSE for more information.
  *
@@ -2738,6 +2738,18 @@ a.list-group-item-danger.active, a.list-group-item-danger:hover, a.list-group-it
     border-color: #e6e9ed;
     background-color: #e6e9ed;
 }
+.panel-default > table.table > thead > tr
+{
+    background-color: #e6e9ed;
+}
+.panel-default > table.table > thead > tr a
+{
+    color: #434a54 !important;
+}
+.panel-default > table.table > thead > tr i
+{
+    color: #434a54 !important;
+}
 .panel-primary
 {
     border-color: #3bafda;
@@ -2747,6 +2759,18 @@ a.list-group-item-danger.active, a.list-group-item-danger:hover, a.list-group-it
     color: #fff;
     border-color: #3bafda;
     background-color: #3bafda;
+}
+.panel-primary > table.table > thead > tr
+{
+    background-color: #3bafda;
+}
+.panel-primary > table.table > thead > tr a
+{
+    color: #fff !important;
+}
+.panel-primary > table.table > thead > tr i
+{
+    color: #fff !important;
 }
 .panel-success
 {
@@ -2758,6 +2782,18 @@ a.list-group-item-danger.active, a.list-group-item-danger:hover, a.list-group-it
     border-color: #8cc152;
     background-color: #8cc152;
 }
+.panel-success > table.table > thead > tr
+{
+    background-color: #8cc152;
+}
+.panel-success > table.table > thead > tr a
+{
+    color: #fff !important;
+}
+.panel-success > table.table > thead > tr i
+{
+    color: #fff !important;
+}
 .panel-info
 {
     border-color: #37bc9b;
@@ -2767,6 +2803,18 @@ a.list-group-item-danger.active, a.list-group-item-danger:hover, a.list-group-it
     color: #fff;
     border-color: #37bc9b;
     background-color: #37bc9b;
+}
+.panel-info > table.table > thead > tr
+{
+    background-color: #37bc9b;
+}
+.panel-info > table.table > thead > tr a
+{
+    color: #fff !important;
+}
+.panel-info > table.table > thead > tr i
+{
+    color: #fff !important;
 }
 .panel-warning
 {
@@ -2778,6 +2826,18 @@ a.list-group-item-danger.active, a.list-group-item-danger:hover, a.list-group-it
     border-color: #f6bb42;
     background-color: #f6bb42;
 }
+.panel-warning > table.table > thead > tr
+{
+    background-color: #f6bb42;
+}
+.panel-warning > table.table > thead > tr a
+{
+    color: #fff !important;
+}
+.panel-warning > table.table > thead > tr i
+{
+    color: #fff !important;
+}
 .panel-danger
 {
     border-color: #c0392b;
@@ -2787,6 +2847,18 @@ a.list-group-item-danger.active, a.list-group-item-danger:hover, a.list-group-it
     color: #fff;
     border-color: #c0392b;
     background-color: #c0392b;
+}
+.panel-danger > table.table > thead > tr
+{
+    background-color: #c0392b;
+}
+.panel-danger > table.table > thead > tr a
+{
+    color: #fff !important;
+}
+.panel-danger > table.table > thead > tr i
+{
+    color: #fff !important;
 }
 .panel-primary > .panel-heading > .panel-title, .panel-success > .panel-heading > .panel-title, .panel-info > .panel-heading > .panel-title, .panel-warning > .panel-heading > .panel-title, .panel-danger > .panel-heading > .panel-title
 {

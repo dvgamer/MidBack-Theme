@@ -1,0 +1,28 @@
+.row {
+	div.data {
+		margin: 15px;
+    position: absolute;
+    > .col-left,  > .col-right {
+			float: left;
+    	&.big-number {
+	    	font-size: 3rem;
+    	}
+    	> em {
+    		font-size: 1.2rem;
+    		display: block;
+    	}
+    }
+    > .col-left {
+
+    }
+    > .col-right {
+      padding: 5px 0 0 14px;
+      > em.caret-up {
+				color: #8CC152 !important;
+      }
+      > em.caret-down {
+				color: #DA4453 !important;
+      }
+    }
+	}
+}
