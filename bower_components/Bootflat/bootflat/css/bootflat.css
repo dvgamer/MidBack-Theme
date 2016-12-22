@@ -7,7 +7,7 @@
  *
  * By @Flathemes <info@flathemes.com>
  *
- * Last modify time: 2016-12-09
+ * Last modify time: 2016-12-22
  *
  * Licensed under the MIT license. Please see LICENSE for more information.
  *
@@ -2504,7 +2504,6 @@ a.list-group-item-danger.active, a.list-group-item-danger:hover, a.list-group-it
 .modal-content
 {
     color: #434a54;
-    border: none;
     -webkit-border-radius: 4px;
        -moz-border-radius: 4px;
             border-radius: 4px;
@@ -2514,11 +2513,15 @@ a.list-group-item-danger.active, a.list-group-item-danger:hover, a.list-group-it
 }
 .modal-header
 {
-    border-bottom: none;
+    padding: 10px 15px;
+}
+.modal-header button.close
+{
+    margin-top: 5px;
 }
 .modal-body
 {
-    padding: 0 15px;
+    padding: 10px 15px;
 }
 .modal-footer
 {
