@@ -12,6 +12,8 @@ var 1.0 2016-10-04
  * add callback function after keytab or keyenter
 var 1.0 2016-10-05
  * add enter-ignore and keyoff class
+var 1.1 2016-12-28
+ * fiexed callback default
 */
  
 (function () {
@@ -64,6 +66,9 @@ var 1.0 2016-10-05
     };
     var CONTAINER_CSS = "tab-container", ACTIVE_CSS = "tab-active";
     jQuery.fn.enableTab = function (options, callback) {
+        callback = callback || (function(i, e){ 
+
+        });
         var settings = $.extend({
             //let ya-enter2tab control tab key behavior, prevent focus going outside of the container
             enterKey: false 
