@@ -309,6 +309,12 @@ window.getVue.Select = {
 				default: false
 			},
 
+
+			disabled: {
+				type: Boolean,
+				default: false
+			},
+
 			/**
 			 * When true, newly created tags will be added to
 			 * the options list.
@@ -376,7 +382,7 @@ window.getVue.Select = {
 			 * @return {void}
 			 */
 			select:function(option) {
-				if (this.isOptionSelected(option)) {
+				if (this.isOptionSelected(option) && this.searchable) {
 					this.deselect(option)
 				} else {
 					if (this.taggable && !this.optionExists(option)) {
@@ -442,14 +448,15 @@ window.getVue.Select = {
 			 * @return {void}
 			 */
 			toggleDropdown:function(e) {
-				if (e.target === this.$refs.openIndicator || e.target === this.$refs.search || e.target === this.$refs.toggle || e.target === this.$el) {
+				// console.log(e.target);
+				// if (e.target === this.$refs.openIndicator || e.target === this.$refs.search || e.target === this.$refs.toggle || e.target === this.$el) {
 					if (this.open) {
 						this.$refs.search.blur() // dropdown will close on blur
 					} else {
 						this.open = true
 						this.$refs.search.focus()
 					}
-				}
+				// }
 			},
 
 			/**
@@ -529,7 +536,8 @@ window.getVue.Select = {
 				return {
 					open: this.open,
 					searchable: this.searchable,
-					loading: this.loading
+					loading: this.loading,
+					disabled: this.disabled
 				}
 			},
 

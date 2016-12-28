@@ -126,6 +126,7 @@ ul.nav {
 
 	&.navbar-bottom {
  		li {
+ 			border-bottom: transparent solid 2px;
 		 	> a,
 		 	&.active>a {
 		 		cursor: pointer;
