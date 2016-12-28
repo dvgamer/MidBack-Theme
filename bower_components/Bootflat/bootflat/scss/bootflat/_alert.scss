@@ -2,7 +2,7 @@
 //------------------------------------------------------
 $alert-primary:                 $aqua-light !default;
 $alert-success:                 $grass-light !default;
-$alert-danger:                  $grapefruit-light !default;
+$alert-danger:                  #c0392b !default;
 $alert-warning:                 $sunflower-light !default;
 
 $alert-close-color:             $black !default;
@@ -20,7 +20,7 @@ $alert-link-color:              $mediumgray-light !default;
    * --------------------------------------------------
    */
   .alert {
-
+      
       & h4 {
           margin-bottom: 10px;
           font-weight: bold;
@@ -31,19 +31,20 @@ $alert-link-color:              $mediumgray-light !default;
       }
 
       @at-root &-info {
-          background-color: lighten($alert-primary, 10%);
+          background-color: $alert-primary;
           border: $alert-primary;
       }
       @at-root &-warning {
-          background-color: lighten($alert-warning, 10%);
+          background-color: $alert-warning;
           border: $alert-warning;
       }
       @at-root &-danger {
-          background-color: lighten($alert-danger, 10%);
+          color: #FFF;
+          background-color: $alert-danger;
           border: $alert-danger;
       }
       @at-root &-success {
-          background-color: lighten($alert-success, 10%);
+          background-color: $alert-success;
           border: $alert-success;
       }
 

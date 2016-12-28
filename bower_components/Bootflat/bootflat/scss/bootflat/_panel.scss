@@ -63,6 +63,10 @@ $panel-radius:                  4px !default;
         > thead {
           > tr {
             background-color: $panel-normal;
+            th {
+              border: none !important;
+              padding: 5px 8px 5px 4px !important;
+            }
             a {
               color: $panel-font-color !important;
             }
@@ -84,6 +88,10 @@ $panel-radius:                  4px !default;
         > thead {
           > tr {
             background-color: $panel-primary;
+            th {
+              border: none !important;
+              padding: 5px 8px 5px 4px !important;
+            }
             a {
               color: #FFFFFF !important;
             }
@@ -106,6 +114,10 @@ $panel-radius:                  4px !default;
         > thead {
           > tr {
             background-color: $panel-success;
+            th {
+              border: none !important;
+              padding: 5px 8px 5px 4px !important;
+            }
             a {
               color: #FFFFFF !important;
             }
@@ -128,6 +140,10 @@ $panel-radius:                  4px !default;
         > thead {
           > tr {
             background-color: $panel-info;
+            th {
+              border: none !important;
+              padding: 5px 8px 5px 4px !important;
+            }
             a {
               color: #FFFFFF !important;
             }
@@ -150,6 +166,10 @@ $panel-radius:                  4px !default;
         > thead {
           > tr {
             background-color: $panel-warning;
+            th {
+              border: none !important;
+              padding: 5px 8px 5px 4px !important;
+            }
             a {
               color: #FFFFFF !important;
             }
@@ -172,6 +192,10 @@ $panel-radius:                  4px !default;
         > thead {
           > tr {
             background-color: $panel-danger;
+            th {
+              border: none !important;
+              padding: 5px 8px 5px 4px !important;
+            }
             a {
               color: #FFFFFF !important;
             }

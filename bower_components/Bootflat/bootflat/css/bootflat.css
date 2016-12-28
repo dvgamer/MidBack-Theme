@@ -7,7 +7,7 @@
  *
  * By @Flathemes <info@flathemes.com>
  *
- * Last modify time: 2016-12-22
+ * Last modify time: 2016-12-28
  *
  * Licensed under the MIT license. Please see LICENSE for more information.
  *
@@ -1843,22 +1843,23 @@ blockquote
 .alert-info
 {
     border: #4fc1e9;
-    background-color: #7cd1ef;
+    background-color: #4fc1e9;
 }
 .alert-warning
 {
     border: #ffce54;
-    background-color: #ffdd87;
+    background-color: #ffce54;
 }
 .alert-danger
 {
-    border: #e74c3c;
-    background-color: #ed7669;
+    color: #fff;
+    border: #c0392b;
+    background-color: #c0392b;
 }
 .alert-success
 {
     border: #a0d468;
-    background-color: #b9df90;
+    background-color: #a0d468;
 }
 .alert .alert-link
 {
@@ -2745,6 +2746,12 @@ a.list-group-item-danger.active, a.list-group-item-danger:hover, a.list-group-it
 {
     background-color: #e6e9ed;
 }
+.panel-default > table.table > thead > tr th
+{
+    padding: 5px 8px 5px 4px !important;
+
+    border: none !important;
+}
 .panel-default > table.table > thead > tr a
 {
     color: #434a54 !important;
@@ -2766,6 +2773,12 @@ a.list-group-item-danger.active, a.list-group-item-danger:hover, a.list-group-it
 .panel-primary > table.table > thead > tr
 {
     background-color: #3bafda;
+}
+.panel-primary > table.table > thead > tr th
+{
+    padding: 5px 8px 5px 4px !important;
+
+    border: none !important;
 }
 .panel-primary > table.table > thead > tr a
 {
@@ -2789,6 +2802,12 @@ a.list-group-item-danger.active, a.list-group-item-danger:hover, a.list-group-it
 {
     background-color: #8cc152;
 }
+.panel-success > table.table > thead > tr th
+{
+    padding: 5px 8px 5px 4px !important;
+
+    border: none !important;
+}
 .panel-success > table.table > thead > tr a
 {
     color: #fff !important;
@@ -2810,6 +2829,12 @@ a.list-group-item-danger.active, a.list-group-item-danger:hover, a.list-group-it
 .panel-info > table.table > thead > tr
 {
     background-color: #37bc9b;
+}
+.panel-info > table.table > thead > tr th
+{
+    padding: 5px 8px 5px 4px !important;
+
+    border: none !important;
 }
 .panel-info > table.table > thead > tr a
 {
@@ -2833,6 +2858,12 @@ a.list-group-item-danger.active, a.list-group-item-danger:hover, a.list-group-it
 {
     background-color: #f6bb42;
 }
+.panel-warning > table.table > thead > tr th
+{
+    padding: 5px 8px 5px 4px !important;
+
+    border: none !important;
+}
 .panel-warning > table.table > thead > tr a
 {
     color: #fff !important;
@@ -2854,6 +2885,12 @@ a.list-group-item-danger.active, a.list-group-item-danger:hover, a.list-group-it
 .panel-danger > table.table > thead > tr
 {
     background-color: #c0392b;
+}
+.panel-danger > table.table > thead > tr th
+{
+    padding: 5px 8px 5px 4px !important;
+
+    border: none !important;
 }
 .panel-danger > table.table > thead > tr a
 {
