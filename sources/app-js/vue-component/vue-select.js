@@ -4,9 +4,9 @@ window.getVue.Select = {
 	        '<span class="form-control" v-if="!searchable && isValueEmpty">',
 	          '{{ placeholder }}',
 	        '</span>',
-	        '<span class="selected-tag" v-for="option in valueAsArray" track-by="1">',
+	        '<span :class="searchable ? \'selected-tag\' : \'selected-item\'" v-for="option in valueAsArray" track-by="1">',
 	          '{{ getOptionLabel(option) }}',
-	          '<button v-if="multiple" @click="select(option)" type="button" class="close">',
+	          '<button :disabled="disabled" v-if="multiple" @click="select(option)" type="button" class="close">',
 	            '<span aria-hidden="true">&times;</span>',
 	          '</button>',
 	        '</span>',
@@ -33,7 +33,7 @@ window.getVue.Select = {
 				// '</slot>',
 			'</div>',
 			'<ul ref="dropdownMenu" v-show="open" :transition="transition" class="dropdown-menu" :style="{ \'max-height\': maxHeight }">',
-				'<li v-for="option in filteredOptions" track-by="1" :class="{ active: isOptionSelected(option), highlight: 1 === typeAheadPointer }" @mouseover="typeAheadPointer = 1">',
+				'<li v-for="option in filteredOptions" track-by="1" :class="{ active: isOptionSelected(option) }" @mouseover="typeAheadPointer = 1">', //, highlight: 1 === typeAheadPointer
 					'<a @mousedown.prevent="select(option)">',
 						'{{ getOptionLabel(option) }}',
 					'</a>',
@@ -273,6 +273,11 @@ window.getVue.Select = {
 				default: 'label'
 			},
 
+			key: {
+				type: String,
+				default: 'value'
+			},
+
 			/**
 			 * Callback to generate the label text. If {option}
 			 * is an object, returns option[this.label] by default.
@@ -283,8 +288,20 @@ window.getVue.Select = {
 				type: Function,
 				default:function(option) {
 					if (typeof option === 'object') {
-						if (this.label && option[this.label]) {
+						if (this.label && option[this.label] != undefined) {
 							return option[this.label]
+						}
+					}
+					return option;
+				}
+			},
+
+			getOptionKey: {
+				type: Function,
+				default:function(option) {
+					if (typeof option === 'object') {
+						if (this.key && option[this.key] != undefined) {
+							return option[this.key]
 						}
 					}
 					return option;
@@ -395,12 +412,12 @@ window.getVue.Select = {
 
 					if (this.multiple) {
 						if (!this.value) {
-							this.$set('value', [option])
+							this.$set('value', [this.getOptionKey(option)])
 						} else {
-							this.value.push(option)
+							this.value.push(this.getOptionKey(option))
 						}
 					} else {
-						this.value = option
+						this.value = this.getOptionKey(option)
 					}
 				}
 
@@ -415,10 +432,11 @@ window.getVue.Select = {
 			deselect:function(option) {
 				if (this.multiple) {
 					var ref = -1
-					this.value.forEach(function(val) {
+					this.value.map(function(val) {
 						if (val === option || typeof val === 'object' && val[this.label] === option[this.label]) {
 							ref = val
 						}
+						return val;
 					})
 					this.value.$remove(ref)
 				} else {
@@ -450,11 +468,15 @@ window.getVue.Select = {
 			toggleDropdown:function(e) {
 				// console.log(e.target);
 				// if (e.target === this.$refs.openIndicator || e.target === this.$refs.search || e.target === this.$refs.toggle || e.target === this.$el) {
-					if (this.open) {
-						this.$refs.search.blur() // dropdown will close on blur
+					if(!this.disabled) {
+						if (this.open) {
+							this.$refs.search.blur() // dropdown will close on blur
+						} else {
+							this.$refs.search.focus()
+						}
+						this.open = !this.open;
 					} else {
-						this.open = true
-						this.$refs.search.focus()
+						this.$refs.search.blur()
 					}
 				// }
 			},
@@ -466,18 +488,18 @@ window.getVue.Select = {
 			 */
 			isOptionSelected:function(option) {
 				if (this.multiple && this.value) {
-					var selected = false
-					this.value.forEach(function(opt) {
+					var selected = false;
+					this.value.map(function(opt) {
 						if (typeof opt === 'object' && opt[this.label] === option[this.label]) {
-							selected = true
+							selected = true;
 						} else if (opt === option) {
-							selected = true
+							selected = true;
 						}
+						return opt;
 					})
 					return selected
 				}
-
-				return this.value === option
+				return this.value === this.getOptionKey(option);
 			},
 
 			/**
@@ -514,12 +536,13 @@ window.getVue.Select = {
 			optionExists:function(option) {
 				var exists = false
 
-				this.options.forEach(function(opt) {
+				this.options.map(function(opt) {
 					if (typeof opt === 'object' && opt[this.label] === option) {
 						exists = true
 					} else if (opt === option) {
 						exists = true
 					}
+					return opt;
 				})
 
 				return exists
@@ -577,14 +600,14 @@ window.getVue.Select = {
 			 * @return {Boolean}
 			 */
 			isValueEmpty: function() {
-				if (this.value) {
-					if (typeof this.value === 'object') {
-						return !Object.keys(this.value).length
-					}
-					return !this.value.length
-				}
+				// if (this.value != undefined) {
+				// 	// if (typeof this.value === 'object') {
+				// 	// 	return !this.value.length
+				// 	// }
+				// 	return !this.value.length
+				// }
 
-				return true;
+				return this.value == undefined;
 			},
 
 			/**
@@ -594,8 +617,13 @@ window.getVue.Select = {
 			valueAsArray: function() {
 				if (this.multiple) {
 					return this.value
-				} else if (this.value) {
-					return [this.value]
+				} else if (this.value != undefined) {
+					var item = this.options.length > 0 ? this.getOptionLabel(this.options[0]) : '';
+					this.options.map(function(opt){
+						if(this.getOptionKey(opt) === this.value) item = this.getOptionLabel(opt);
+						return opt;
+					}.bind(this))
+					return [ item ];
 				}
 
 				return []
