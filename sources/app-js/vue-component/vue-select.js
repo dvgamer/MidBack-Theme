@@ -1,6 +1,6 @@
 window.getVue.Select = {
 	template: ['<div class="dropdown v-select" :class="dropdownClasses">',
-			'<div ref="toggle" @mousedown.prevent="toggleDropdown" class="dropdown-toggle clearfix" type="button">',
+			'<div ref="toggle" @mousedown.prevent="toggleDropdown" class="dropdown-toggle clearfix" :class="{ disabled: disabled }" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">',
 	        '<span class="form-control" v-if="!searchable && isValueEmpty">',
 	          '{{ placeholder }}',
 	        '</span>',
@@ -32,7 +32,7 @@ window.getVue.Select = {
 				// 	'<div class="spinner" v-show="loading">Loading...</div>',
 				// '</slot>',
 			'</div>',
-			'<ul ref="dropdownMenu" v-show="open" :transition="transition" class="dropdown-menu" :style="{ \'max-height\': maxHeight }">',
+			'<ul ref="dropdownMenu" v-show="!disabled" :transition="transition" class="dropdown-menu" :style="{ \'max-height\': maxHeight }">',
 				'<li v-for="option in filteredOptions" track-by="1" :class="{ active: isOptionSelected(option) }" @mouseover="typeAheadPointer = 1">', //, highlight: 1 === typeAheadPointer
 					'<a @mousedown.prevent="select(option)">',
 						'{{ getOptionLabel(option) }}',
@@ -315,7 +315,13 @@ window.getVue.Select = {
 			 * @type {Function}
 			 * @default {null}
 			 */
-			onChange: Function,
+			onChange: {
+				type: Function,
+				default: function(option) {
+					console.log('default', option)
+					return option;
+				}
+			},
 
 			/**
 			 * Enable/disable creating options from searchInput.
@@ -375,6 +381,7 @@ window.getVue.Select = {
 
 		watch: {
 			value:function(val, old) {
+				console.log(val, this.onChange);
 				if (this.multiple) {
 					this.onChange ? this.onChange(val) : null
 				} else {
@@ -466,18 +473,14 @@ window.getVue.Select = {
 			 * @return {void}
 			 */
 			toggleDropdown:function(e) {
-				// console.log(e.target);
+				console.log(e.target)
+				console.log(document.activeElement)
 				// if (e.target === this.$refs.openIndicator || e.target === this.$refs.search || e.target === this.$refs.toggle || e.target === this.$el) {
-					if(!this.disabled) {
-						if (this.open) {
-							this.$refs.search.blur() // dropdown will close on blur
-						} else {
-							this.$refs.search.focus()
-						}
-						this.open = !this.open;
-					} else {
-						this.$refs.search.blur()
-					}
+				if(!this.disabled) {
+					this.$refs.search.focus()
+				} else {
+					this.$refs.search.blur()
+				}
 				// }
 			},
 

@@ -2,15 +2,11 @@
 		position: relative;
 		margin: -4px 0px;
 		background-color: #ffffff;
-		opacity: 1;
-		opacity: .9;
 	}
 	.v-select.disabled, .v-select.disabled:hover {
 		background-color: #f0f0f0;
 		opacity: .65 !important;
-	}
-	.v-select:hover {
-		opacity: 1;
+		cursor: not-allowed !important;
 	}
 	.v-select .open-indicator {
 		position: absolute;
@@ -75,11 +71,13 @@
 
 	.v-select > .dropdown-menu {
 		margin: 0;
+		margin-top: -1px;
 		width: 100%;
 		overflow-y: scroll;
-		border-top: none;
+		border-top: none !important;
 		border-top-left-radius: 0;
 		border-top-right-radius: 0;
+		min-width: 12px !important;
 	}
 
 	.v-select .selected-tag {
@@ -128,6 +126,7 @@
 
 	.v-select li a {
 		cursor: pointer;
+		padding: 5px 10px !important;
 	}
 
 	.v-select .active a, .v-select .active a:hover {
