@@ -1,9 +1,12 @@
 window.request = function(options){ // 
 	var main = location.href.substring(0, location.href.indexOf('/operation/') + '/operation/'.length)
-	if(options.url) { options.url = main + (options.url).replace(/^\//g,''); }
+	if(options.url) { 
+		options.url = main + (options.url).replace(/^\//g,''); 
+		options.url = /\/$/g.test(options.url) ? options.url + 'Default.aspx' : options.url;
+	}
 
 	_.defaults(options, {
-		url : /\/$/g.test(location.href) ? location.href + 'Default.aspx' : '',
+		url: /\/$/g.test(location.href) ? location.href + 'Default.aspx' : '',
 		api: false,
 		exception: false,
 		data: { },
@@ -15,10 +18,10 @@ window.request = function(options){ //
 			__.inst.post(options.url, {
 				data: options.data,
 			}).then(function (response) {
-				// console.wran('inst then', response);
+				// console.warn('inst then', response);
 		  	resolve({ options: options, result: response.data }); 
 			}).catch(function (error) {
-				// console.wran('inst catch', error.message || error)
+				// console.warn('inst catch', error.message || error)
 			  reject({ options: options, result: error.message || error }); 
 			})
 	  });
@@ -38,12 +41,12 @@ window.request = function(options){ //
 		__.inst.post(options.url, {
 			data: options.data,
 		}).then(function (response) {
-			// console.wran('inst then', response);
+			// console.warn('inst then', response);
       var cb = new CallbackException(response.data);
 		  options.callback(cb.getItems, cb);
 		}).catch(function (error) {
-			// console.wran('inst catch', error.message || error)
-      var cb = new CallbackException(error.message || error);
+			// console.warn('inst catch', error.message || error)
+      var cb = new CallbackException("catch", error.message || error);
 		  options.callback(cb.getItems, cb); 
 		})
 	}
