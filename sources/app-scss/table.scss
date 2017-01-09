@@ -2,6 +2,11 @@
 	tbody {
 		tr { 
 			td {
+				.flatpickr-input {
+					&.flatpickr-mobile {
+				    margin: -4px 0 -4px 0px !important;
+					}
+				}
 				&.no-transaction {
 					font-size: 1.1rem;
 					font-weight: bold;
