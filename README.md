@@ -17,7 +17,6 @@
 - [capslockstate-jquery-plugin](https://github.com/nosilleg/capslockstate-jquery-plugin.git) `https://github.com/nosilleg/capslockstate-jquery-plugin.git`
 - [vue-html-editor](https://github.com/Haixing-Hu/vue-html-editor.git) `https://github.com/Haixing-Hu/vue-html-editor.git`
 - [push.js](https://github.com/Nickersoft/push.js.git) `https://github.com/Nickersoft/push.js.git`
-- [dynatable](https://github.com/alfajango/jquery-dynatable.git) `https://github.com/alfajango/jquery-dynatable.git`
 - [chai](https://github.com/chaijs/chai.git) `https://github.com/chaijs/chai.git`
 - [chai-http](https://github.com/chaijs/chai-http.git) `https://github.com/chaijs/chai-http.git`
 - [chartjs](https://github.com/chartjs/Chart.js.git) `https://github.com/chartjs/Chart.js.git`
@@ -30,7 +29,11 @@
 - [sortable](https://github.com/RubaXa/Sortable.git)`https://github.com/RubaXa/Sortable.git`
 - [domurl](https://github.com/Mikhus/domurl.git)`https://github.com/Mikhus/domurl.git`
 - [console-normalizer](https://github.com/Zenovations/console-normalizer.git)`https://github.com/Zenovations/console-normalizer.git`
-
+- [vue-select](https://github.com/sagalbot/vue-select.git)`https://github.com/sagalbot/vue-select.git`
+- [chart.js](https://github.com/chartjs/Chart.js.git)`https://github.com/chartjs/Chart.js.git`
+- [flatpickr](https://github.com/chmln/flatpickr.git)`https://github.com/chmln/flatpickr.git`
+- [fuse.js](https://github.com/krisk/Fuse.git)`https://github.com/krisk/Fuse.git`
+    
 ### Authors
 
 **Kananek T. <info.dvgamer@gmail.com>**

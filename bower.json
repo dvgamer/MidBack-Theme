@@ -33,6 +33,8 @@
     "domurl": "^2.1.7",
     "vue-select": "https://github.com/sagalbot/vue-select.git#^1.3.3",
     "chart.js": "^2.4.0",
-    "flatpickr": "flatpickr-calendar#^2.2.4"
+    "flatpickr": "flatpickr-calendar#^2.2.4",
+    "fuse.js": "https://github.com/krisk/Fuse.git#^2.6.1",
+    "Chart.HorizontalBar.js": "chart.horizontalbar#^1.0.3"
   }
 }

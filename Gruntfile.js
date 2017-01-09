@@ -132,6 +132,7 @@ module.exports = function(grunt) {
 		}
   });
 
+  // callback 
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-contrib-jshint');
@@ -140,6 +141,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-sass');
   grunt.loadNpmTasks('grunt-contrib-cssmin');
   grunt.loadNpmTasks('grunt-concat-css');
+  grunt.loadNpmTasks("grunt-then");
 
   //bundle build
   grunt.registerTask('js', ['uglify:ie_fixed', 'uglify:app', 'uglify:bundle', 'sass']);
@@ -148,5 +150,13 @@ module.exports = function(grunt) {
 
   //develop build
   grunt.registerTask('pre', ['uglify:vendor','uglify:dev','sass','cssmin', 'concat_css']);
-  grunt.registerTask('dev', ['clean','pre','copy','watch']);
+  grunt.registerTask('dev', ['clean']).then(function () {
+    grunt.task.run(['pre','copy']).then(function(){
+      // var text = fs.readFileSync('test.md','utf8')
+
+
+      return grunt.task.run('watch');
+    });
+    // do cool grunty things
+  });
 }; 
