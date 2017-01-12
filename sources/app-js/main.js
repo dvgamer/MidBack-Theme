@@ -1,23 +1,23 @@
 window.TitlePage = function(page){ document.title = (page?page+' • ':'Travox ') + 'Midback Office™' }
-var cache_page = false;
+cache.preload = false;
 cache.on('downloading', function(sender){
   preloader.on();
-  cache_page = true;
+  cache.preload = true;
 });
 cache.on('progress', function(sender){ 
   // console.log(sender.loaded, sender.total); 
 });
 cache.on('cached', function(sender){ 
-  if(cache_page) {
-    preloader.off();
-    cache_page = false;
+  if(cache.preload) {
+    if(!__.req.tasks.length) preloader.off();
+    cache.preload = false;
   }
   cache.stop();
 });
 cache.on('updateready', function(){ 
-  if(cache_page) {
-    preloader.off();
-    cache_page = false;
+  if(cache.preload) {
+    if(!__.req.tasks.length) preloader.off();
+    cache.preload = false;
   }
   cache.stop();
 });
@@ -52,21 +52,31 @@ $(function(){
 	}
 	// $(document).on("keydown", function(e) { if ((e.which || e.keyCode) == 116) e.preventDefault(); });
 
-  var GrantNotificationCheck = setInterval(function() {
+  var NotificationCheck = false;
+  var NotificationTitle = "Travox Midback Office™";
+  var NotificationOptional = {
+    icon: '/mos_V2/operation/dist/icon/mbos-Icon-72.png',
+    body: 'Welcome to Web Booking Online.'
+  };
+  var NotificationGrant = setInterval(function() {
     if (!("Notification" in window)) {
-      clearInterval(GrantNotificationCheck);
+      clearInterval(NotificationGrant);
     } else if (Notification.permission === "granted") {
-      clearInterval(GrantNotificationCheck);
+      clearInterval(NotificationGrant);
     } else if (Notification.permission !== 'denied') {
       Notification.requestPermission(function (permission) {
         if(!('permission' in Notification)) Notification.permission = permission;
-        if (permission !== "granted") {
-      		new Notification("Travox Midback Office™", {
-            iconUrl: '/mos_V2/operation/dist/icon/mbos-Icon-72.png',
-            message: 'Welcome to Web Booking Engine by Nippon SySits.'
-          });
+        if (Notification.permission !== "granted") {
+          if(!NotificationCheck) {
+            NotificationCheck = true;
+            new Notification(NotificationTitle, NotificationOptional);
+          }
         } else {
-          clearInterval(GrantNotificationCheck);
+          clearInterval(NotificationGrant);
+          if(!NotificationCheck) {
+            NotificationCheck = true;
+            new Notification(NotificationTitle, NotificationOptional);
+          }
         }
       });
     }

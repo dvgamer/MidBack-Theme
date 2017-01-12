@@ -150,13 +150,5 @@ module.exports = function(grunt) {
 
   //develop build
   grunt.registerTask('pre', ['uglify:vendor','uglify:dev','sass','cssmin', 'concat_css']);
-  grunt.registerTask('dev', ['clean']).then(function () {
-    grunt.task.run(['pre','copy']).then(function(){
-      // var text = fs.readFileSync('test.md','utf8')
-
-
-      return grunt.task.run('watch');
-    });
-    // do cool grunty things
-  });
+  grunt.registerTask('dev', ['clean','pre','copy','watch']);
 }; 

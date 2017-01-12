@@ -1,5 +1,7 @@
 window.request = function(options){ // 
-	var main = location.href.substring(0, location.href.indexOf('/operation/') + '/operation/'.length)
+	var main = location.href.substring(0, location.href.indexOf('/operation/') + '/operation/'.length);
+	// main = main.substring(0, main.indexOf('#') + '#'.length);
+
 	if(options.url) { 
 		options.url = main + (options.url).replace(/^\//g,''); 
 		options.url = /\/$/g.test(options.url) ? options.url + 'Default.aspx' : options.url;
@@ -33,7 +35,7 @@ window.request = function(options){ //
 			__.req.run().then(function(){ 
 				__.req.stopped = true; 
 				__.unload = false; 
-				window.preloader.off(); 
+				if(!cache.preload) window.preloader.off(); 
 			}); 
 		}
 		return __.req.tasks.length;

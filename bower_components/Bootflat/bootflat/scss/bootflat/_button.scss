@@ -136,9 +136,7 @@ $button-shadow:                  inset 0 1px 2px rgba(0, 0, 0, .125) !default;
     @at-root &-primary {
       &, 
       &:active, 
-      &.active,
-      &.disabled,
-      &[disabled] {
+      &.active {
           color: $button-font-color-light;
           border-color: $button-primary;
           background-color: $button-primary;    
@@ -153,6 +151,14 @@ $button-shadow:                  inset 0 1px 2px rgba(0, 0, 0, .125) !default;
           border-color: $button-primary-hover !important;
           background-color: $button-primary-hover !important; 
       }
+
+      &.disabled,
+      &[disabled] {
+          border-color: $button-primary !important; 
+          background-color: transparent !important;  
+          color: $button-font-color-dark  !important;
+      }
+
     }
     @at-root .open .dropdown-toggle.btn-primary {
         border-color: $button-primary-hover;
@@ -162,9 +168,7 @@ $button-shadow:                  inset 0 1px 2px rgba(0, 0, 0, .125) !default;
     @at-root &-info {
       &, 
       &:active, 
-      &.active, 
-      &.disabled,
-      &[disabled] {
+      &.active {
           color: $button-font-color-light;
           border-color: $button-info;
           background-color: $button-info;    
@@ -179,6 +183,13 @@ $button-shadow:                  inset 0 1px 2px rgba(0, 0, 0, .125) !default;
           border-color: $button-info-hover !important;
           background-color: $button-info-hover !important;           
       }
+
+      &.disabled,
+      &[disabled] {
+          border-color: $button-info !important; 
+          background-color: transparent !important;  
+          color: $button-font-color-dark !important;
+      }
     }
     @at-root .open .dropdown-toggle.btn-info {
         border-color: $button-info-hover;
@@ -188,9 +199,7 @@ $button-shadow:                  inset 0 1px 2px rgba(0, 0, 0, .125) !default;
     @at-root &-success {
       &, 
       &:active, 
-      &.active, 
-      &.disabled,
-      &[disabled] {
+      &.active {
           color: $button-font-color-light;
           border-color: $button-success;
           background-color: $button-success;    
@@ -205,6 +214,13 @@ $button-shadow:                  inset 0 1px 2px rgba(0, 0, 0, .125) !default;
           border-color: $button-success-hover !important;
           background-color: $button-success-hover !important; 
       }
+
+      &.disabled,
+      &[disabled] {
+          border-color: $button-success !important; 
+          background-color: transparent !important;  
+          color: $button-font-color-dark !important;
+      }
     }
     @at-root .open .dropdown-toggle.btn-success {
         border-color: $button-success-hover;
@@ -214,9 +230,7 @@ $button-shadow:                  inset 0 1px 2px rgba(0, 0, 0, .125) !default;
     @at-root &-warning {
       &, 
       &:active, 
-      &.active, 
-      &.disabled,
-      &[disabled] {
+      &.active {
           color: $button-font-color-light;
           border-color: $button-warning;
           background-color: $button-warning;    
@@ -231,6 +245,13 @@ $button-shadow:                  inset 0 1px 2px rgba(0, 0, 0, .125) !default;
           border-color: $button-warning-hover !important;
           background-color: $button-warning-hover !important; 
       }
+
+      &.disabled,
+      &[disabled] {
+          border-color: $button-warning !important; 
+          background-color: transparent !important;  
+          color: $button-font-color-dark !important;
+      }
     }
     @at-root .open .dropdown-toggle.btn-warning {
         border-color: $button-warning-hover;
@@ -240,9 +261,7 @@ $button-shadow:                  inset 0 1px 2px rgba(0, 0, 0, .125) !default;
     @at-root &-danger {
       &, 
       &:active, 
-      &.active, 
-      &.disabled,
-      &[disabled],
+      &.active,
       .open .dropdown-toggle.btn {
           color: $button-font-color-light;
           border-color: $button-danger;
@@ -257,6 +276,13 @@ $button-shadow:                  inset 0 1px 2px rgba(0, 0, 0, .125) !default;
       &:focus {
           border-color: $button-danger-hover !important;
           background-color: $button-danger-hover !important; 
+      }
+
+      &.disabled,
+      &[disabled] {
+          border-color: $button-danger !important; 
+          background-color: transparent !important;  
+          color: $button-font-color-dark !important;
       }
     }
     @at-root .open .dropdown-toggle.btn-danger {
