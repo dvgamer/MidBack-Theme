@@ -1,17 +1,6 @@
 import Vue from 'vue'
 
 describe('Options name', () => {
-  it('should warn when giving instance a name', () => {
-    const Comp = Vue.component('custom', { name: 'custom' })
-    new Comp()
-    expect(`options "name" can only be used as a component definition option`).not.toHaveBeenWarned()
-
-    new Vue({
-      name: 'SuperVue'
-    }).$mount()
-    expect(`options "name" can only be used as a component definition option`).toHaveBeenWarned()
-  })
-
   it('should contain itself in self components', () => {
     const vm = Vue.extend({
       name: 'SuperVue'
@@ -26,17 +15,18 @@ describe('Options name', () => {
     })
 
     /* eslint-disable */
-    expect(`Invalid component name: "Hyper*Vue". Component names can only contain alphanumeric characaters and the hyphen.`)
+    expect(`Invalid component name: "Hyper*Vue". Component names can only contain alphanumeric characters and the hyphen, and must start with a letter.`)
       .toHaveBeenWarned()
     /* eslint-enable */
-  })
 
-  it('when incorrect name given it should not contain itself in self components', () => {
-    const vm = Vue.extend({
-      name: 'Hyper*Vue'
+    Vue.extend({
+      name: '2Cool2BValid'
     })
 
-    expect(vm.options.components['Hyper*Vue']).toBeUndefined()
+    /* eslint-disable */
+    expect(`Invalid component name: "2Cool2BValid". Component names can only contain alphanumeric characters and the hyphen, and must start with a letter.`)
+      .toHaveBeenWarned()
+    /* eslint-enable */
   })
 
   it('id should not override given name when using Vue.component', () => {

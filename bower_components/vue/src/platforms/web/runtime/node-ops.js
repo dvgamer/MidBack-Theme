@@ -2,8 +2,15 @@
 
 import { namespaceMap } from 'web/util/index'
 
-export function createElement (tagName: string): Element {
-  return document.createElement(tagName)
+export function createElement (tagName: string, vnode: VNode): Element {
+  const elm = document.createElement(tagName)
+  if (tagName !== 'select') {
+    return elm
+  }
+  if (vnode.data && vnode.data.attrs && 'multiple' in vnode.data.attrs) {
+    elm.setAttribute('multiple', 'multiple')
+  }
+  return elm
 }
 
 export function createElementNS (namespace: string, tagName: string): Element {
@@ -44,10 +51,6 @@ export function tagName (node: Element): string {
 
 export function setTextContent (node: Node, text: string) {
   node.textContent = text
-}
-
-export function childNodes (node: Node): NodeList<Node> {
-  return node.childNodes
 }
 
 export function setAttribute (node: Element, key: string, val: string) {

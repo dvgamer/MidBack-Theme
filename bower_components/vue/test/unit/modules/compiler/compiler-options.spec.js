@@ -51,7 +51,7 @@ describe('compile options', () => {
             result[validator.name] = null
           })
           // generate code
-          return `_h('validate',{props:{
+          return `_c('validate',{props:{
             field:${JSON.stringify(el.validate.field)},
             groups:${JSON.stringify(el.validate.groups)},
             validators:${JSON.stringify(el.validators)},
@@ -118,7 +118,7 @@ describe('compile options', () => {
   it('should collect errors', () => {
     let compiled = compile('hello')
     expect(compiled.errors.length).toBe(1)
-    expect(compiled.errors[0]).toContain('should contain exactly one root element')
+    expect(compiled.errors[0]).toContain('root element')
 
     compiled = compile('<div v-if="a----">{{ b++++ }}</div>')
     expect(compiled.errors.length).toBe(2)

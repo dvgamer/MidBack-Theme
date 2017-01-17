@@ -404,4 +404,46 @@ describe('Directive v-for', () => {
       expect(vm.$el.innerHTML).toContain('<div>Two!</div><p>One!</p>')
     }).then(done)
   })
+
+  it('multi nested array reactivity', done => {
+    const vm = new Vue({
+      data: {
+        list: [[['foo']]]
+      },
+      template: `
+        <div>
+          <div v-for="i in list">
+            <div v-for="j in i">
+              <div v-for="k in j">
+                {{ k }}
+              </div>
+            </div>
+          </div>
+        </div>
+      `
+    }).$mount()
+    expect(vm.$el.textContent).toMatch(/\s+foo\s+/)
+    vm.list[0][0].push('bar')
+    waitForUpdate(() => {
+      expect(vm.$el.textContent).toMatch(/\s+foo\s+bar\s+/)
+    }).then(done)
+  })
+
+  it('strings', done => {
+    const vm = new Vue({
+      data: {
+        text: 'foo'
+      },
+      template: `
+        <div>
+          <span v-for="letter in text">{{ letter }}.</span
+        </div>
+      `
+    }).$mount()
+    expect(vm.$el.textContent).toMatch('f.o.o.')
+    vm.text += 'bar'
+    waitForUpdate(() => {
+      expect(vm.$el.textContent).toMatch('f.o.o.b.a.r.')
+    }).then(done)
+  })
 })

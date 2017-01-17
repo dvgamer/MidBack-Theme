@@ -3,28 +3,29 @@
 export default class VNode {
   tag: string | void;
   data: VNodeData | void;
-  children: Array<VNode> | void;
+  children: ?Array<VNode>;
   text: string | void;
   elm: Node | void;
   ns: string | void;
   context: Component | void; // rendered in this component's scope
+  functionalContext: Component | void; // only for functional component root nodes
   key: string | number | void;
   componentOptions: VNodeComponentOptions | void;
   child: Component | void; // component instance
-  parent: VNode | void; // compoennt placeholder node
+  parent: VNode | void; // component placeholder node
   raw: boolean; // contains raw HTML? (server only)
   isStatic: boolean; // hoisted static node
   isRootInsert: boolean; // necessary for enter transition check
   isComment: boolean; // empty comment placeholder?
   isCloned: boolean; // is a cloned node?
+  isOnce: boolean; // is a v-once node?
 
   constructor (
     tag?: string,
     data?: VNodeData,
-    children?: Array<VNode> | void,
+    children?: ?Array<VNode>,
     text?: string,
     elm?: Node,
-    ns?: string | void,
     context?: Component,
     componentOptions?: VNodeComponentOptions
   ) {
@@ -33,8 +34,9 @@ export default class VNode {
     this.children = children
     this.text = text
     this.elm = elm
-    this.ns = ns
+    this.ns = undefined
     this.context = context
+    this.functionalContext = undefined
     this.key = data && data.key
     this.componentOptions = componentOptions
     this.child = undefined
@@ -44,14 +46,19 @@ export default class VNode {
     this.isRootInsert = true
     this.isComment = false
     this.isCloned = false
+    this.isOnce = false
   }
 }
 
-export const emptyVNode = () => {
+export const createEmptyVNode = () => {
   const node = new VNode()
   node.text = ''
   node.isComment = true
   return node
+}
+
+export function createTextVNode (val: string | number) {
+  return new VNode(undefined, undefined, undefined, String(val))
 }
 
 // optimized shallow clone
@@ -65,10 +72,10 @@ export function cloneVNode (vnode: VNode): VNode {
     vnode.children,
     vnode.text,
     vnode.elm,
-    vnode.ns,
     vnode.context,
     vnode.componentOptions
   )
+  cloned.ns = vnode.ns
   cloned.isStatic = vnode.isStatic
   cloned.key = vnode.key
   cloned.isCloned = true

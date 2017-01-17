@@ -7,9 +7,26 @@ import {
   WatchHandler,
   DirectiveOptions,
   DirectiveFunction
-} from "./options.d";
-import { VNode, VNodeData, VNodeChildren } from "./vnode";
+} from "./options";
+import { VNode, VNodeData, VNodeChildren, ScopedSlot } from "./vnode";
 import { PluginFunction, PluginObject } from "./plugin";
+
+export type CreateElement = {
+  // empty node
+  (): VNode;
+
+  // element or component name
+  (tag: string, children: VNodeChildren): VNode;
+  (tag: string, data?: VNodeData, children?: VNodeChildren): VNode;
+
+  // component constructor or options
+  (tag: Component, children: VNodeChildren): VNode;
+  (tag: Component, data?: VNodeData, children?: VNodeChildren): VNode;
+
+  // async component
+  (tag: AsyncComponent, children: VNodeChildren): VNode;
+  (tag: AsyncComponent, data?: VNodeData, children?: VNodeChildren): VNode;
+}
 
 export declare class Vue {
 
@@ -23,6 +40,7 @@ export declare class Vue {
   readonly $children: Vue[];
   readonly $refs: { [key: string]: Vue | Element | Vue[] | Element[]};
   readonly $slots: { [key: string]: VNode[] };
+  readonly $scopedSlots: { [key: string]: ScopedSlot };
   readonly $isServer: boolean;
 
   $mount(elementOrSelector?: Element | String, hydrating?: boolean): this;
@@ -39,13 +57,9 @@ export declare class Vue {
   $once(event: string, callback: Function): this;
   $off(event?: string, callback?: Function): this;
   $emit(event: string, ...args: any[]): this;
-  $nextTick(callback?: (this: this) => void): void;
-  $createElement(
-    tag?: string | Component | AsyncComponent,
-    data?: VNodeData,
-    children?: VNodeChildren
-  ): VNode;
-
+  $nextTick(callback: (this: this) => void): void;
+  $nextTick(): Promise<void>;
+  $createElement: CreateElement;
 
   static config: {
     silent: boolean;
@@ -57,6 +71,7 @@ export declare class Vue {
 
   static extend(options: ComponentOptions<Vue> | FunctionalComponentOptions): typeof Vue;
   static nextTick(callback: () => void, context?: any[]): void;
+  static nextTick(): Promise<void>
   static set<T>(object: Object, key: string, value: T): T;
   static set<T>(array: T[], key: number, value: T): T;
   static delete(object: Object, key: string): void;

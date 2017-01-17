@@ -4,9 +4,9 @@
  */
 
 import { looseEqual, looseIndexOf } from 'shared/util'
-import { warn, nextTick, isAndroid, isIE9, isIE, isEdge } from 'core/util/index'
+import { warn, isAndroid, isIE9, isIE, isEdge } from 'core/util/index'
 
-const modelableTagRE = /^input|select|textarea|vue-component-[0-9]+(-[0-9a-zA-Z_\-]*)?$/
+const modelableTagRE = /^input|select|textarea|vue-component-[0-9]+(-[0-9a-zA-Z_-]*)?$/
 
 /* istanbul ignore if */
 if (isIE9) {
@@ -20,7 +20,7 @@ if (isIE9) {
 }
 
 export default {
-  bind (el, binding, vnode) {
+  inserted (el, binding, vnode) {
     if (process.env.NODE_ENV !== 'production') {
       if (!modelableTagRE.test(vnode.tag)) {
         warn(
@@ -32,23 +32,25 @@ export default {
       }
     }
     if (vnode.tag === 'select') {
-      setSelected(el, binding, vnode.context)
+      const cb = () => {
+        setSelected(el, binding, vnode.context)
+      }
+      cb()
       /* istanbul ignore if */
       if (isIE || isEdge) {
-        const cb = () => {
-          setSelected(el, binding, vnode.context)
-        }
-        nextTick(cb)
         setTimeout(cb, 0)
       }
     } else if (vnode.tag === 'textarea' || el.type === 'text') {
-      if (!isAndroid) {
-        el.addEventListener('compositionstart', onCompositionStart)
-        el.addEventListener('compositionend', onCompositionEnd)
-      }
-      /* istanbul ignore if */
-      if (isIE9) {
-        el.vmodel = true
+      el._vModifiers = binding.modifiers
+      if (!binding.modifiers.lazy) {
+        if (!isAndroid) {
+          el.addEventListener('compositionstart', onCompositionStart)
+          el.addEventListener('compositionend', onCompositionEnd)
+        }
+        /* istanbul ignore if */
+        if (isIE9) {
+          el.vmodel = true
+        }
       }
     }
   },
@@ -57,11 +59,11 @@ export default {
       setSelected(el, binding, vnode.context)
       // in case the options rendered by v-for have changed,
       // it's possible that the value is out-of-sync with the rendered options.
-      // detect such cases and filter out values that no longer has a matchig
+      // detect such cases and filter out values that no longer has a matching
       // option in the DOM.
       const needReset = el.multiple
         ? binding.value.some(v => hasNoMatchingOption(v, el.options))
-        : hasNoMatchingOption(binding.value, el.options)
+        : binding.value !== binding.oldValue && hasNoMatchingOption(binding.value, el.options)
       if (needReset) {
         trigger(el, 'change')
       }

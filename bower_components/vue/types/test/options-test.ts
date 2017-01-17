@@ -42,7 +42,7 @@ Vue.component('component', {
     }
   },
   methods: {
-    plus(this: Component) {
+    plus() {
       this.a++;
     }
   },
@@ -88,7 +88,8 @@ Vue.component('component', {
       key: 'myKey',
       ref: 'myRef'
     }, [
-      createElement("div", {}, "message"),
+      createElement(),
+      createElement("div", "message"),
       createElement(Vue.component("component")),
       createElement({} as ComponentOptions<Vue>),
       createElement({ functional: true }),
@@ -107,7 +108,7 @@ Vue.component('component', {
 
       "message",
 
-      [createElement("div", {}, "message")]
+      [createElement("div", "message")]
     ]);
   },
   staticRenderFns: [],
@@ -122,6 +123,8 @@ Vue.component('component', {
   mounted() {},
   beforeUpdate() {},
   updated() {},
+  activated() {},
+  deactivated() {},
 
   directives: {
     a: {
@@ -159,13 +162,44 @@ Vue.component('component', {
   delimiters: ["${", "}"]
 } as ComponentOptions<Component>);
 
+Vue.component('component-with-scoped-slot', {
+  render (h) {
+    interface ScopedSlotProps {
+      msg: string
+    }
+
+    return h('div', [
+      h('child', [
+        // default scoped slot as children
+        (props: ScopedSlotProps) => [h('span', [props.msg])]
+      ]),
+      h('child', {
+        scopedSlots: {
+          // named scoped slot as vnode data
+          item: (props: ScopedSlotProps) => [h('span', [props.msg])]
+        }
+      })
+    ])
+  },
+  components: {
+    child: {
+      render (h) {
+        return h('div', [
+          this.$scopedSlots['default']({ msg: 'hi' }),
+          this.$scopedSlots['item']({ msg: 'hello' })
+        ])
+      }
+    } as ComponentOptions<Vue>
+  }
+} as ComponentOptions<Vue>)
+
 Vue.component('functional-component', {
   props: ['prop'],
   functional: true,
   render(createElement, context) {
     context.props;
     context.children;
-    context.slots;
+    context.slots();
     context.data;
     context.parent;
     return createElement("div", {}, context.children);

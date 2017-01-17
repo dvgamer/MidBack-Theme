@@ -6,7 +6,6 @@ import { warn } from './debug'
 import { set } from '../observer/index'
 import {
   extend,
-  isObject,
   isPlainObject,
   hasOwn,
   camelize,
@@ -34,29 +33,22 @@ if (process.env.NODE_ENV !== 'production') {
     }
     return defaultStrat(parent, child)
   }
-
-  strats.name = function (parent, child, vm) {
-    if (vm && child) {
-      warn(
-        'options "name" can only be used as a component definition option, ' +
-        'not during instance creation.'
-      )
-    }
-    return defaultStrat(parent, child)
-  }
 }
 
 /**
  * Helper that recursively merges two data objects together.
  */
 function mergeData (to: Object, from: ?Object): Object {
+  if (!from) return to
   let key, toVal, fromVal
-  for (key in from) {
+  const keys = Object.keys(from)
+  for (let i = 0; i < keys.length; i++) {
+    key = keys[i]
     toVal = to[key]
     fromVal = from[key]
     if (!hasOwn(to, key)) {
       set(to, key, fromVal)
-    } else if (isObject(toVal) && isObject(fromVal)) {
+    } else if (isPlainObject(toVal) && isPlainObject(fromVal)) {
       mergeData(toVal, fromVal)
     }
   }
@@ -204,26 +196,16 @@ const defaultStrat = function (parentVal: any, childVal: any): any {
 }
 
 /**
- * Make sure component options get converted to actual
- * constructors.
+ * Validate component names
  */
-function normalizeComponents (options: Object) {
-  if (options.components) {
-    const components = options.components
-    let def
-    for (const key in components) {
-      const lower = key.toLowerCase()
-      if (isBuiltInTag(lower) || config.isReservedTag(lower)) {
-        process.env.NODE_ENV !== 'production' && warn(
-          'Do not use built-in or reserved HTML elements as component ' +
-          'id: ' + key
-        )
-        continue
-      }
-      def = components[key]
-      if (isPlainObject(def)) {
-        components[key] = Vue.extend(def)
-      }
+function checkComponents (options: Object) {
+  for (const key in options.components) {
+    const lower = key.toLowerCase()
+    if (isBuiltInTag(lower) || config.isReservedTag(lower)) {
+      warn(
+        'Do not use built-in or reserved HTML elements as component ' +
+        'id: ' + key
+      )
     }
   }
 }
@@ -284,7 +266,9 @@ export function mergeOptions (
   child: Object,
   vm?: Component
 ): Object {
-  normalizeComponents(child)
+  if (process.env.NODE_ENV !== 'production') {
+    checkComponents(child)
+  }
   normalizeProps(child)
   normalizeDirectives(child)
   const extendsFrom = child.extends
@@ -335,11 +319,14 @@ export function resolveAsset (
     return
   }
   const assets = options[type]
-  const res = assets[id] ||
-    // camelCase ID
-    assets[camelize(id)] ||
-    // Pascal Case ID
-    assets[capitalize(camelize(id))]
+  // check local registration variations first
+  if (hasOwn(assets, id)) return assets[id]
+  const camelizedId = camelize(id)
+  if (hasOwn(assets, camelizedId)) return assets[camelizedId]
+  const PascalCaseId = capitalize(camelizedId)
+  if (hasOwn(assets, PascalCaseId)) return assets[PascalCaseId]
+  // fallback to prototype chain
+  const res = assets[id] || assets[camelizedId] || assets[PascalCaseId]
   if (process.env.NODE_ENV !== 'production' && warnMissing && !res) {
     warn(
       'Failed to resolve ' + type.slice(0, -1) + ': ' + id,
