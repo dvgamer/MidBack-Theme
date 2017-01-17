@@ -24,6 +24,7 @@ cache.on('updateready', function(){
 
 cache.on('noupdate', function(){ 
   console.log('Cache Installed.');
+  cache.preload = false;
   cache.stop();
 });
 

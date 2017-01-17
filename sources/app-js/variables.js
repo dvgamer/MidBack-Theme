@@ -17,10 +17,28 @@ window.MBOS = {
 	},
 	setItem: function(key, value, cb){
 		return __.local.setItem((this.CLIENT()?this.CLIENT()+'->':'')+key, value, cb);
+	},
+	Permission: function(index_name){
+		return __.local.getItem((this.CLIENT()?this.CLIENT()+'->':'')+'session.permission').then(function(data){
+			var d = Q.defer();
+			if(index_name == undefined) {
+				var p = Storage('PERMISSION');
+				d.resolve({ system: p == 'SYSTEM', admin: p == 'ADMIN' });
+			} else {
+				Elapsed('Permission' + (index_name ? ' '+index_name : ''))
+				var found = (data || []).filter(function(item){ return item.index_name === index_name });
+				Elapsed('Permission' + (index_name ? ' '+index_name : ''))
+				d.resolve(found.length > 0 ? true : false);
+			}
+			return d.promise;
+		}).catch(function(e){
+			console.warn(e);
+		});
 	}
 }
 
 window.__ = {
+	debug: Storage('DEBUG') || false,
 	local: localforage.createInstance({ name: location.hostname == 'localhost' ? 'develop' : 'production' }),
 	unload: false,
 	req: {

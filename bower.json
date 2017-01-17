@@ -9,7 +9,7 @@
   "homepage": "",
   "dependencies": {
     "jquery": "^2.2.3",
-    "vue": "https://github.com/vuejs/vue.git#v2.0.1",
+    "vue": "https://github.com/vuejs/vue.git#v2.1.8",
     "moment": "^2.13.0",
     "bootstrap": "^3.3.6",
     "socket.io-client": "https://github.com/socketio/socket.io-client.git#^1.4.8",
