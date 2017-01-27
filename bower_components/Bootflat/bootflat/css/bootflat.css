@@ -7,7 +7,7 @@
  *
  * By @Flathemes <info@flathemes.com>
  *
- * Last modify time: 2017-01-12
+ * Last modify time: 2017-01-27
  *
  * Licensed under the MIT license. Please see LICENSE for more information.
  *
@@ -1928,15 +1928,10 @@ blockquote
  */
 .nav-tabs
 {
+    border-top: 1px solid #e8e8e8;
     border-bottom: 1px solid #ccd1d9;
 }
-.nav-tabs > li
-{
-    margin: 8px 0;
-
-    border-left: 1px solid #ccd1d9;
-}
-.nav-tabs > li:first-child
+.nav-tabs > li > a:first-child
 {
     border-left: none;
 }
@@ -1944,14 +1939,22 @@ blockquote
 {
     font-size: 1.2rem;
 
+    margin: 8px 0;
     margin-right: 0;
 
     text-align: center;
 
     color: #8e8e8e;
-    border: none;
+    border: none;
+    border-left: 1px solid #ccd1d9 !important;
+    background-color: transparent !important;
 }
-.nav-tabs > li > a:focus, .nav-tabs > li > a:hover
+.nav-tabs > li:first-child > a
+{
+    border: none !important;
+}
+.nav-tabs > li:focus,
+.nav-tabs > li:hover
 {
     border: none;
     background-color: #f5f7fa;
@@ -1974,7 +1977,7 @@ blockquote
 }
 .nav-tabs > li.active:after
 {
-    margin-top: -7px;
+    margin-top: -14px;
     margin-left: -9px;
 
     border-width: 8px;
@@ -1983,7 +1986,7 @@ blockquote
 }
 .nav-tabs > li.active:before
 {
-    margin-top: -8px;
+    margin-top: -16px;
     margin-left: -9px;
 
     border-width: 8px;
@@ -1994,7 +1997,12 @@ blockquote
 {
     font-weight: bold;
 }
-.nav-tabs > li.active > a, .nav-tabs > li.active > a:focus, .nav-tabs > li.active > a:hover
+.nav-tabs > li.active,
+.nav-tabs > li.active:focus,
+.nav-tabs > li.active:hover,
+.nav-tabs > li.active > a,
+.nav-tabs > li.active > a:focus,
+.nav-tabs > li.active > a:hover
 {
     color: #434a54 !important;
     border: none;

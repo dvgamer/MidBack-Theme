@@ -22,32 +22,37 @@ $tab-border-color:                     $mediumgray-light !default;
   .nav-tabs {
       // background-color: $tab-background-color;
       // @include radius($type: border-radius, $value: $tab-radius $tab-radius 0 0);
+      border-top: 1px solid #e8e8e8;
       border-bottom: 1px solid $tab-border-color;
-      & > li {
-        border-left: 1px solid $tab-border-color;
-        margin: 8px 0px;
+      > li {
+
+
       }
-      & > li:first-child {
+      > li > a:first-child {
         border-left: none;
       }
-      & > li > a {
-          margin-right: 0;
-          border: none;
-          font-size: 1.2rem;
-          // @include radius($type: border-radius, $value: 0);
-          color: #8e8e8e;
-          text-align: center;
+      > li > a {
+        border-left: 1px solid $tab-border-color !important;
+        margin: 8px 0px;
+        margin-right: 0;
+        border: none;
+        font-size: 1.2rem;
+        // @include radius($type: border-radius, $value: 0);
+        color: #8e8e8e;
+        text-align: center;
+        background-color:transparent !important;
       }
-      & > li:first-child > a {
+      > li:first-child > a {
+        border: none !important;
         // @include radius($type: border-radius, $value: $tab-radius 0 0 0);
       }
-      & > li > a:focus,
-      & > li > a:hover {
+      > li:focus,
+      > li:hover {
           border: none;
           background-color: $tab-background-color-hover; 
       }
 
-      & > li.active:after, & > li.active:before {
+      > li.active:after, & > li.active:before {
         top: 100%;
         left: 50%;
         border: solid transparent;
@@ -60,28 +65,31 @@ $tab-border-color:                     $mediumgray-light !default;
         margin-top: 5px;
       }
 
-      & > li.active:after {
+      > li.active:after {
         border-color: rgba(255, 255, 255, 0);
         margin-left: -9px;
         border-width: 8px;
         border-bottom-color: #fff;
-        margin-top: -7px;
+        margin-top: -14px;
       }
 
-      & > li.active:before {
+      > li.active:before {
         border-color: rgba(204, 204, 204, 0);
         border-bottom-color: $tab-border-color;
         margin-left: -9px;
         border-width: 8px;
-        margin-top: -8px;
+        margin-top: -16px;
       }
-      & > li.active > a {
+      > li.active > a {
           font-weight: bold;
       }
 
-      & > li.active > a, 
-      & > li.active > a:focus, 
-      & > li.active > a:hover {
+      > li.active, 
+      > li.active:focus, 
+      > li.active:hover,
+      > li.active > a, 
+      > li.active > a:focus, 
+      > li.active > a:hover {
           border: none;
           color: $tab-font-color-acitve !important;
 

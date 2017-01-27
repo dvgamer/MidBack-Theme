@@ -22,7 +22,7 @@ window.MBOS = {
 		return __.local.getItem((this.CLIENT()?this.CLIENT()+'->':'')+'session.permission').then(function(data){
 			var d = Q.defer();
 			if(index_name == undefined) {
-				var p = Storage('PERMISSION');
+				var p = __.permission;
 				d.resolve({ system: p == 'SYSTEM', admin: p == 'ADMIN' });
 			} else {
 				Elapsed('Permission' + (index_name ? ' '+index_name : ''))
@@ -38,6 +38,7 @@ window.MBOS = {
 }
 
 window.__ = {
+	permission: Storage((MBOS.CLIENT()?MBOS.CLIENT()+'->':'')+'Permission'),
 	debug: Storage('DEBUG') || false,
 	local: localforage.createInstance({ name: location.hostname == 'localhost' ? 'develop' : 'production' }),
 	unload: false,
