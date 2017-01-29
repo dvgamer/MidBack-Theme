@@ -25,9 +25,9 @@ window.MBOS = {
 				var p = __.permission;
 				d.resolve({ system: p == 'SYSTEM', admin: p == 'ADMIN' });
 			} else {
-				Elapsed('Permission' + (index_name ? ' '+index_name : ''))
+				Elapsed.check('Permission' + (index_name ? ' '+index_name : ''))
 				var found = (data || []).filter(function(item){ return item.index_name === index_name });
-				Elapsed('Permission' + (index_name ? ' '+index_name : ''))
+				Elapsed.end('Permission' + (index_name ? ' '+index_name : ''))
 				d.resolve(found.length > 0 ? true : false);
 			}
 			return d.promise;

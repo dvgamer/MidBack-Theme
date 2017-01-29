@@ -1,10 +1,10 @@
 window.Elapsed = {
-  check: function(){
+  check: function(key){
     if(__.debug && console) {
       console.time(key);
     }
   },
-  end: function(){
+  end: function(key){
     if(__.debug && console) {
       console.timeEnd(key); 
     }

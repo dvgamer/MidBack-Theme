@@ -90,8 +90,9 @@ $tab-border-color:                     $mediumgray-light !default;
       > li.active > a, 
       > li.active > a:focus, 
       > li.active > a:hover {
-          border: none;
-          color: $tab-font-color-acitve !important;
+        border: none;
+        background-color:transparent !important;
+        color: $tab-font-color-acitve !important;
 
       }
 

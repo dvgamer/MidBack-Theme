@@ -7,7 +7,7 @@
  *
  * By @Flathemes <info@flathemes.com>
  *
- * Last modify time: 2017-01-27
+ * Last modify time: 2017-01-29
  *
  * Licensed under the MIT license. Please see LICENSE for more information.
  *
@@ -869,11 +869,11 @@ blockquote
 
 .form-search .search-query, .form-search .search-query:first-child, .form-search .search-query:last-child
 {
-    padding: 0 17px;
+    padding: 0 16px;
 
-    -webkit-border-radius: 17px;
-       -moz-border-radius: 17px;
-            border-radius: 17px;
+    -webkit-border-radius: 16px;
+       -moz-border-radius: 16px;
+            border-radius: 16px;
 }
 .input-group .form-control:last-child
 {
@@ -895,9 +895,9 @@ blockquote
 }
 .form-search .btn
 {
-    -webkit-border-radius: 17px;
-       -moz-border-radius: 17px;
-            border-radius: 17px;
+    -webkit-border-radius: 16px;
+       -moz-border-radius: 16px;
+            border-radius: 16px;
 }
 
 .search-only
@@ -906,15 +906,15 @@ blockquote
 }
 .search-only .search-icon
 {
-    font-size: 17px;
-    line-height: 30px;
+    font-size: 16px;
+    line-height: 22px;
 
     position: absolute;
     z-index: 20;
     top: 2px;
-    left: 8.5px;
+    left: 8px;
 
-    width: 30px;
+    width: 22px;
 
     text-align: center;
 
@@ -922,7 +922,7 @@ blockquote
 }
 .search-only .form-control:last-child
 {
-    padding-left: 40px;
+    padding-left: 32px;
 }
 
 .has-success .help-block, .has-success .control-label, .has-success .radio, .has-success .checkbox, .has-success .radio-inline, .has-success .checkbox-inline
@@ -2006,6 +2006,7 @@ blockquote
 {
     color: #434a54 !important;
     border: none;
+    background-color: transparent !important;
 }
 .nav-tabs .dropdown-toggle, .nav-tabs .dropdown-toggle:hover, .nav-tabs .dropdown-toggle:focus
 {
