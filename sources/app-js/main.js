@@ -24,14 +24,24 @@ cache.on('updateready', function(){
 
 cache.on('noupdate', function(){ 
   console.log('Cache Installed.');
-  cache.preload = false;
+  if(cache.preload) {
+    if(!__.req.tasks.length) preloader.off();
+    cache.preload = false;
+  }
   cache.stop();
 });
 
 // cache.on('start', function(){ });
 // cache.on('stop', function(){ });
 
-cache.on('update', function(){ console.log('handleUpdate'); });
+cache.on('update', function(){ 
+  if(cache.preload) {
+    if(!__.req.tasks.length) preloader.off();
+    cache.preload = false;
+  }
+  cache.stop();
+});
+
 cache.on('error', function(){ console.log('handleError'); });
 cache.on('obsolete', function(){ console.log('handleObsolete'); });
 

@@ -13,7 +13,7 @@
 					background-color: #FFF !important;
 					color: #5e6a79;
 				}
-				i {
+				> i {
 					font-size: 1.1em;
 			    font-weight: bold;
 					&.fa-active {
@@ -27,6 +27,19 @@
 						height: 16px;
 						background-image: url('../images/preload_sm.gif');
 						background-repeat:  no-repeat;
+					}
+				}
+				> .input-group {
+					> .input-group-addon {
+				    border: none !important;
+				    background: none !important;
+				    padding: 0px 4px 0px 1px;
+				    font-size: 11px;
+				    line-height: initial;
+				    border: 1px solid #ccc;
+				    i {
+							font-size: 1.1em;
+				    }
 					}
 				}
 			}
