@@ -73,3 +73,15 @@ div.mos-footer span:last-child {
   text-align: left;
   vertical-align: middle;
 }
+
+.login {
+  .preload {
+    padding-top: 55px;
+    font-size: 2.3rem;
+    font-weight: bold;
+    text-align: center;
+    margin: 25px 0px;
+    background: url(/mos_demo/operation/images/preload_lg.gif) no-repeat;
+    background-position: center top;
+  }
+}

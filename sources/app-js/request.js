@@ -13,8 +13,9 @@ window.request = function(options){ //
 		exception: false,
 		data: { },
 		callback: function(){ }
-	}); 
+	});
 
+	// console.log('request ', options.url);
 	if(!options.api) {
 	  __.req.tasks.push(function(resolve, reject) {
 			__.inst.post(options.url, {
@@ -29,7 +30,7 @@ window.request = function(options){ //
 	  });
 
 		__.unload = true;
-		window.preloader.on();
+		if(window.preloader) window.preloader.on();
 		if(__.req.stopped) { 
 			__.req.stopped = false;
 			__.req.run().then(function(){ 
