@@ -318,7 +318,7 @@ window.getVue.Select = {
 			onChange: {
 				type: Function,
 				default: function(option) {
-					console.log('default', option)
+					// console.log('default', option)
 					return option;
 				}
 			},
@@ -381,7 +381,7 @@ window.getVue.Select = {
 
 		watch: {
 			value:function(val, old) {
-				console.log(val, this.onChange);
+				// console.log(val, this.onChange);
 				if (this.multiple) {
 					this.onChange ? this.onChange(val) : null
 				} else {
@@ -473,8 +473,8 @@ window.getVue.Select = {
 			 * @return {void}
 			 */
 			toggleDropdown:function(e) {
-				console.log(e.target)
-				console.log(document.activeElement)
+				// console.log(e.target)
+				// console.log(document.activeElement)
 				// if (e.target === this.$refs.openIndicator || e.target === this.$refs.search || e.target === this.$refs.toggle || e.target === this.$el) {
 				if(!this.disabled) {
 					this.$refs.search.focus()

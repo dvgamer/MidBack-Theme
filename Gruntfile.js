@@ -146,7 +146,7 @@ module.exports = function(grunt) {
   //bundle build
   grunt.registerTask('js', ['uglify:ie_fixed', 'uglify:app', 'uglify:bundle', 'sass']);
   grunt.registerTask('css', ['cssmin', 'concat_css']);
-  grunt.registerTask('default', ['clean', 'js','css','copy']);
+  grunt.registerTask('default', ['clean', 'js','css']);
 
   //develop build
   grunt.registerTask('pre', ['uglify:vendor','uglify:dev','sass','cssmin', 'concat_css']);
