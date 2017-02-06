@@ -7,7 +7,7 @@
  *
  * By @Flathemes <info@flathemes.com>
  *
- * Last modify time: 2017-01-29
+ * Last modify time: 2017-02-05
  *
  * Licensed under the MIT license. Please see LICENSE for more information.
  *
@@ -745,25 +745,45 @@ blockquote
  * pagination
  * --------------------------------------------------
  */
+.pagination > li > span, .pagination > li > span:hover
+{
+    border-top: none !important;
+    border-bottom: none !important;
+    background-color: transparent;
+}
+.pagination > li:first-child > span, .pagination > li:first-child > span:hover
+{
+    border-left: none !important;
+}
+.pagination > li:last-child > span, .pagination > li:last-child > span:hover
+{
+    border-right: none !important;
+}
 .pagination > li > a, .pagination > li > span
 {
+    padding: 4px 8px;
+
     color: #434a54;
     border-color: #ccd1d9;
     background-color: #fff;
 }
-.pagination > li > a:hover, .pagination > li > span:hover, .pagination > li > a:focus, .pagination > li > span:focus
+.pagination > li > a > i, .pagination > li > span > i
+{
+    font-size: 1.25rem;
+}
+.pagination > li > a:hover, .pagination > li > a:focus
 {
     color: #fff;
     border-color: #ccd1d9;
     background-color: #ccd1d9;
 }
-.pagination > .active > a, .pagination > .active > span, .pagination > .active > a:hover, .pagination > .active > span:hover, .pagination > .active > a:focus, .pagination > .active > span:focus
+.pagination > .active > a, .pagination > .active > a:hover, .pagination > .active > a:focus
 {
     color: #fff;
     border-color: #8cc152;
     background-color: #8cc152;
 }
-.pagination > .disabled > span, .pagination > .disabled > span:hover, .pagination > .disabled > span:focus, .pagination > .disabled > a, .pagination > .disabled > a:hover, .pagination > .disabled > a:focus
+.pagination > .disabled > span, .pagination > .disabled > a, .pagination > .disabled > a:hover, .pagination > .disabled > a:focus
 {
     color: #e6e9ed;
     border-color: #ccd1d9;

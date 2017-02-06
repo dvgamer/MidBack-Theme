@@ -1,18 +1,18 @@
-.modal-backdrop {
+.modal, .modal-backdrop {
   transition: opacity .3s ease;
 }
+.modal-dialog {
+	transition: all .3s ease;
+}
 
-.modal-body {
-  margin: 20px 0;
+.dialog-enter {
+  opacity: 0 !important;
 }
-.modal-enter {
-  opacity: 0;
+.dialog-leave-active {
+  opacity: 0 !important;
 }
-.modal-leave-active {
-  opacity: 0;
-}
-.modal-enter .modal-container,
-.modal-leave-active .modal-container {
+.dialog-enter .modal-dialog,
+.dialog-leave-active .modal-dialog {
   -webkit-transform: scale(1.1);
   transform: scale(1.1);
 }

@@ -1,13 +1,13 @@
 window.getVue.Model = {
 	template: [
 		'<div>',
-			'<transition name="modal">',
-		    '<div v-if="show" class="modal confirm-dialog" tabindex="-1" role="dialog" style="display: block; padding-right: 17px;">',
+			'<transition name="dialog">',
+		    '<div v-if="show" class="modal" tabindex="-1" role="dialog" style="display: block;">',
 		      '<div class="modal-dialog" role="document">',
 		      	'<div class="modal-content">',
 			        '<div class="modal-header">',
 			          '<slot name="header">',
-			            '<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>',
+			            '<button type="button" class="close" v-on:click="show = false" aria-label="Close"><span aria-hidden="true">&times;</span></button>',
 			            '<h4 class="modal-title"></h4>',
 			          '</slot>',
 			        '</div>',
@@ -18,15 +18,17 @@ window.getVue.Model = {
 			        '</div>',
 			        '<div class="modal-footer">',
 			          '<slot name="footer">',
-			            '<button type="button" class="btn btn-primary" v-html="Yes" v-on:click="$emit(\'submit\')"></button>',
-			            '<button type="button" class="btn btn-default" v-text="No" v-on:click="$emit(\'close\')" data-dismiss="modal"></button>',
+			            '<button type="button" class="btn btn-primary" v-html="Yes" v-on:click="$emit(\'onShow\')"></button>',
+			            '<button type="button" class="btn btn-default" v-text="No" v-on:click="show = false" data-dismiss="modal"></button>',
 			          '</slot>',
 			        '</div>',
 		        '</div>',
 		      '</div>',
 		    '</div>',
-				'</transition>',
-	    '<div v-if="show" class="modal-backdrop fade in"></div>',
+			'</transition>',
+			'<transition name="dialog">',
+	    	'<div v-if="show" class="modal-backdrop in"></div>',
+			'</transition>',
   	'</div>',
 	].join(' '),
 	props:{
@@ -51,5 +53,9 @@ window.getVue.Model = {
 		return {}
 	},
 	watch: { },
-	methods: { }
+	methods: { 
+		alert: function(){
+			this.show = !this.show;
+		}
+	}
 }
