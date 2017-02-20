@@ -8,7 +8,7 @@ window.getVue.Model = {
 			        '<div class="modal-header">',
 			          '<slot name="header">',
 			            '<button type="button" class="close" v-on:click="show = false" aria-label="Close"><span aria-hidden="true">&times;</span></button>',
-			            '<h4 class="modal-title"></h4>',
+			            '<h4 class="modal-title">Travox Midback Office™</h4>',
 			          '</slot>',
 			        '</div>',
 			        '<div class="modal-body">',
@@ -18,8 +18,8 @@ window.getVue.Model = {
 			        '</div>',
 			        '<div class="modal-footer">',
 			          '<slot name="footer">',
-			            '<button type="button" class="btn btn-primary" v-html="Yes" v-on:click="$emit(\'onShow\')"></button>',
-			            '<button type="button" class="btn btn-default" v-text="No" v-on:click="show = false" data-dismiss="modal"></button>',
+			            // '<button type="button" class="btn btn-primary" v-html="Yes" v-on:click="$emit(\'show\')"></button>',
+			            '<button type="button" class="btn btn-default" v-text="No" v-on:click="$emit(\'hide\')" data-dismiss="modal"></button>',
 			          '</slot>',
 			        '</div>',
 		        '</div>',
@@ -46,7 +46,7 @@ window.getVue.Model = {
 		},
 		No: {
 			type: String,
-			default: 'Cancel'
+			default: 'OK'
 		},
 	},
 	data: function() {
@@ -57,5 +57,14 @@ window.getVue.Model = {
 		alert: function(){
 			this.show = !this.show;
 		}
+	},
+	created: function(){
+		var vm = this;
+		vm.$on('show', function(){
+
+		});
+		vm.$on('hide', function(){
+			vm.show = false;
+		});
 	}
 }
