@@ -1,6 +1,10 @@
 .table {
 	tbody {
 		tr { 
+			&.disabled:hover, 
+			&.disabled {
+		    background-color: transparent !important;
+			}
 			td {
 				.flatpickr-input {
 					&.flatpickr-mobile {

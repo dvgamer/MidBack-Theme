@@ -3,23 +3,23 @@ window.getVue.Model = {
 		'<div>',
 			'<transition name="dialog">',
 		    '<div v-if="show" class="modal" tabindex="-1" role="dialog" style="display: block;">',
-		      '<div class="modal-dialog" role="document">',
+		      '<div class="modal-dialog" role="document" :style="{ width: width }">',
 		      	'<div class="modal-content">',
 			        '<div class="modal-header">',
 			          '<slot name="header">',
 			            '<button type="button" class="close" v-on:click="show = false" aria-label="Close"><span aria-hidden="true">&times;</span></button>',
-			            '<h4 class="modal-title">Travox Midback Office™</h4>',
+			            '<h4 class="modal-title" v-text="title"></h4>',
 			          '</slot>',
 			        '</div>',
 			        '<div class="modal-body">',
 			          '<slot name="body">',
-			            '<p v-text="Message"></p>',
+			            '<p v-html="message"></p>',
 			          '</slot>',
 			        '</div>',
 			        '<div class="modal-footer">',
 			          '<slot name="footer">',
-			            // '<button type="button" class="btn btn-primary" v-html="Yes" v-on:click="$emit(\'show\')"></button>',
-			            '<button type="button" class="btn btn-default" v-text="No" v-on:click="$emit(\'hide\')" data-dismiss="modal"></button>',
+			            '<button v-if="yes" type="button" class="btn btn-primary" v-html="yes" v-on:click="on_yes"></button>',
+			            '<button v-if="no"  type="button" class="btn btn-default" v-html="no" v-on:click="on_no" data-dismiss="modal"></button>',
 			          '</slot>',
 			        '</div>',
 		        '</div>',
@@ -36,35 +36,37 @@ window.getVue.Model = {
 			type: Boolean,
 			default: false
 		},
-		Message: {
+		width: {
 			type: String,
-			default: 'Message'
+			default: null
 		},
-		Yes: {
+		title: {
+			type: String,
+			default: 'Travox Midback Office™'
+		},
+		message: {
+			type: String,
+			default: 'message'
+		},
+		yes: {
+			type: String,
+			default: null
+		},
+		no: {
 			type: String,
 			default: 'OK'
 		},
-		No: {
-			type: String,
-			default: 'OK'
+		on_yes: {
+			type: Function,
+			default: function(){
+				this.show = false;
+			}
 		},
-	},
-	data: function() {
-		return {}
-	},
-	watch: { },
-	methods: { 
-		alert: function(){
-			this.show = !this.show;
+		on_no: {
+			type: Function,
+			default: function(){
+				this.show = false;
+			}
 		}
-	},
-	created: function(){
-		var vm = this;
-		vm.$on('show', function(){
-
-		});
-		vm.$on('hide', function(){
-			vm.show = false;
-		});
 	}
 }
