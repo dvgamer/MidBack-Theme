@@ -7,7 +7,7 @@ window.getVue.Model = {
 		      	'<div class="modal-content">',
 			        '<div class="modal-header">',
 			          '<slot name="header">',
-			            '<button type="button" class="close" v-on:click="show = false" aria-label="Close"><span aria-hidden="true">&times;</span></button>',
+			            '<button type="button" class="close" @click="on_no" aria-label="Close"><span aria-hidden="true">&times;</span></button>',
 			            '<h4 class="modal-title" v-text="title"></h4>',
 			          '</slot>',
 			        '</div>',
@@ -18,8 +18,8 @@ window.getVue.Model = {
 			        '</div>',
 			        '<div class="modal-footer">',
 			          '<slot name="footer">',
-			            '<button v-if="yes" type="button" class="btn btn-primary" v-html="yes" v-on:click="on_yes"></button>',
-			            '<button v-if="no"  type="button" class="btn btn-default" v-html="no" v-on:click="on_no" data-dismiss="modal"></button>',
+			            '<button v-if="yes" type="button" class="btn" :class="class" v-html="yes" @click="on_yes"></button>',
+			            '<button v-if="no"  type="button" class="btn btn-default" v-html="no" @click="on_no" data-dismiss="modal"></button>',
 			          '</slot>',
 			        '</div>',
 		        '</div>',
@@ -43,6 +43,10 @@ window.getVue.Model = {
 		title: {
 			type: String,
 			default: 'Travox Midback Office™'
+		},
+		class: {
+			type: String,
+			default: 'btn-primary'
 		},
 		message: {
 			type: String,
