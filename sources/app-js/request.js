@@ -2,7 +2,8 @@ window.request = function(options){ //
 	var main = location.href.substring(0, location.href.indexOf('/operation/') + '/operation/'.length);
 	// main = main.substring(0, main.indexOf('#') + '#'.length);
 
-	if(options.url) { 
+
+	if(options.url && !/^(http|https):/ig.test(options.url)) { 
 		options.url = main + (options.url).replace(/^\//g,''); 
 		options.url = /\/$/g.test(options.url) ? options.url + 'Default.aspx' : options.url;
 	}
