@@ -55,30 +55,18 @@ window.__ = {
 							throw 'response is not JSON type CallbackException';
 						} else {
 	            var cb = new CallbackException(obj.result);
-							obj.options.callback(cb.getItems || {}, cb); 
-							next({ finish: false }); 
+							next({ finish: false });
+							if(obj.options.exception && cb.err) obj.stopped(cb); else obj.next(cb); 
 						}
-
 					}).catch(function(obj) {
-						if (typeof obj == 'string') {
-	            var cb = new CallbackException("Exception", obj);
-							next({ finish: false, error: true, msg: obj , cb: cb});
-						} else if(obj.options) {
-							// console.warn('Promise catch next');
-							if(!obj.options.exception) {
-	            	var cb = new CallbackException(obj.result);
-								(obj.options.callback || function(){ })(cb.getItems, cb); 
-								next({ finish: false, error: false, msg: obj.result || obj , cb: cb});
+	            var cb = new CallbackException("Exception", typeof obj == 'string' ? obj : obj.result);
+							if(obj.options.exception && cb.err) {
+								next({ finish: false, error: true, msg: obj.result || obj , cb: cb});
+								obj.stopped(cb);
 							} else {
-								// console.warn('Promise catch stopped');
-	            	var cb = new CallbackException("Exception", obj.result);
-								stopped(cb);
+								next({ finish: false, error: true, msg: obj.result || obj , cb: cb});
+								obj.next(cb);
 							}
-						} else {
-							// console.warn('Promise catch stopped');
-            	var cb = new CallbackException("Exception", obj.toString());
-							stopped(cb);
-						}
 					});
 				} else {
 					next({ finish: true });
@@ -88,8 +76,8 @@ window.__ = {
 				if (task.error) { throw task.cb; }
 				else if(!task.finish) { return __.req.run(); } 
 			}).catch(function(reason) { 
-				// console.error('Promise(run) -- run', reason);
-				reason.throw();
+				console.error('Promise(run) -- run', reason);
+				// reason.throw();
 			});
 		} 
 	},

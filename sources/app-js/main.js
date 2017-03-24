@@ -1,7 +1,5 @@
-window.TitlePage = function(page){ document.title = (page?page+' • ':'Travox ') + 'Midback Office™' }
-cache.preload = false;
+cache.preload = true;
 cache.on('downloading', function(sender){
-  preloader.on();
   cache.preload = true;
 });
 cache.on('progress', function(sender){ 
@@ -66,7 +64,7 @@ $(function(){
   var NotificationCheck = false;
   var NotificationTitle = "Travox Midback Office™";
   var NotificationOptional = {
-    icon: '/mos_V2/operation/dist/icon/mbos-Icon-72.png',
+    icon: '/dist/icon/mbos-Icon-72.png',
     body: 'Welcome to Web Booking Online.'
   };
   var NotificationGrant = setInterval(function() {
@@ -119,6 +117,7 @@ $(function(){
     fadeIn: 250,
     fadeOut: 250
   }); 
+  preloader.on();
   var getURL = new Url;
   window.location.query = getURL.query;
 
