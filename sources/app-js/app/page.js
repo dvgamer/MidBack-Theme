@@ -1,31 +1,20 @@
 window.Page = function(getComponent) {
-	if (getComponent) Vue.component('panel-component', getComponent);
+	Vue.component('container', getComponent);
 	Vue.component('master', {
 	  template: '#master',
-	  data: {
-
-	  },
-	  created: function() {
-	  	console.log('created master.');
+	  data: function(){
+	  	return {
+        sign: !/\/Contact\-us/g.test(location.href)
+	  	}
 	  }
 	});
 
-	return new Vue({
-	  el: '#app',
-	  data: {
-
-	  },
-	  created: function() {
-	  	console.log('created app.');
-	  }
-	});
+	return new Vue({ el: '#app' });
 }
 
 
 // <body>
-//   <!--[if IE]>
-//     <script src="<%If(MBOSEngine.UI.VuePage.V2)Then%>/mos_v2/<%Else%>/mos_demo/<%End If%>operation/dist/js/ie-fixed.js"></script>
-//   <![endif]-->
+
 
 //   <!-- Components.-->
 //   <script src="<%If(MBOSEngine.UI.VuePage.V2)Then%>/mos_v2/<%Else%>/mos_demo/<%End If%>operation/dist/vendor.min.js"></script>

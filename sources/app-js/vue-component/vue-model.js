@@ -1,4 +1,4 @@
-window.getVue.Model = {
+Vue.component('v-model', {
 	template: [
 		'<div>',
 			'<transition name="dialog">',
@@ -7,7 +7,7 @@ window.getVue.Model = {
 		      	'<div class="modal-content">',
 			        '<div class="modal-header">',
 			          '<slot name="header">',
-			            '<button type="button" class="close" @click="on_no" aria-label="Close"><span aria-hidden="true">&times;</span></button>',
+			            '<button type="button" class="close" @click="cancel" aria-label="Close"><span aria-hidden="true">&times;</span></button>',
 			            '<h4 class="modal-title" v-text="title"></h4>',
 			          '</slot>',
 			        '</div>',
@@ -18,8 +18,9 @@ window.getVue.Model = {
 			        '</div>',
 			        '<div class="modal-footer">',
 			          '<slot name="footer">',
-			            '<button v-if="yes" type="button" class="btn" :class="class" v-html="yes" @click="on_yes"></button>',
-			            '<button v-if="no"  type="button" class="btn btn-default" v-html="no" @click="on_no" data-dismiss="modal"></button>',
+			            '<button v-if="yes" type="button" class="btn" :class="yesClass" v-html="yes" @click="onYes"></button>',
+			            '<button v-if="no" type="button" class="btn" :class="noClass" v-html="no" @click="onNo"></button>',
+			            '<button v-if="cancel"  type="button" class="btn" :class="cancelClass" v-html="cancel" @click="onCancel" data-dismiss="modal"></button>',
 			          '</slot>',
 			        '</div>',
 		        '</div>',
@@ -44,9 +45,17 @@ window.getVue.Model = {
 			type: String,
 			default: 'Travox Midback Office™'
 		},
-		class: {
+		yesClass: {
 			type: String,
 			default: 'btn-primary'
+		},
+		noClass: {
+			type: String,
+			default: 'btn-primary'
+		},
+		cancelClass: {
+			type: String,
+			default: 'btn-default'
 		},
 		message: {
 			type: String,
@@ -58,19 +67,29 @@ window.getVue.Model = {
 		},
 		no: {
 			type: String,
-			default: 'OK'
+			default: null
 		},
-		on_yes: {
+		cancel: {
+			type: String,
+			default: null
+		},
+		onYes: {
 			type: Function,
 			default: function(){
 				this.show = false;
 			}
 		},
-		on_no: {
+		onNo: {
+			type: Function,
+			default: function(){
+				this.show = false;
+			}
+		},
+		onCancel: {
 			type: Function,
 			default: function(){
 				this.show = false;
 			}
 		}
 	}
-}
+});

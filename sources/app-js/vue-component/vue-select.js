@@ -1,4 +1,4 @@
-window.getVue.Select = {
+Vue.component('v-select', {
 	template: ['<div class="dropdown v-select" :class="dropdownClasses">',
 			'<div ref="toggle" @mousedown.prevent="toggleDropdown" class="dropdown-toggle clearfix" :class="{ disabled: disabled }" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">',
 	        '<span class="form-control" v-if="!searchable && isValueEmpty">',
@@ -633,4 +633,4 @@ window.getVue.Select = {
 			}
 		}
 
-	}
+	});
