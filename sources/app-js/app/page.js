@@ -1,13 +1,164 @@
 window.Page = function(getComponent) {
+  var permission = {
+    admin: __.permission === 'ADMIN' || __.permission === 'SYSTEM',
+    system: __.permission === 'SYSTEM'
+  }
+
 	Vue.component('container', getComponent);
 	Vue.component('master', {
 	  template: '#master',
 	  data: function(){
 	  	return {
-        sign: !/\/Contact\-us/g.test(location.href)
-	  	}
-	  }
+	      duedate: false,
+	      duedate_at: '',
+	      maintenace: false,
+	      message: '',
+	    }
+	  },
+    components: {
+      'v-messages': {
+        template: '#template-alert-message',
+        props: [ 'duedate','maintenace','message', 'duedate_at' ]
+      }
+    }
 	});
+
+	Vue.component('navigation', {
+    template: '#navigation',
+    data: function(){
+    	return {
+        sign: !/\/Contact\-us/g.test(location.href),
+        expired: MBOS.Expired(),
+	      pathname: location.pathname,
+	      projects: 'admin',
+	      mainmenu: {
+	        logout: false,
+	        admin: [ 
+	          { id:'dashboard', icon:'', name:'Dashboard', href:'/Administrators/' },
+	          { 
+	            id:'services', 
+	            icon:'',
+	            name:'Services', 
+	            dropdown: [
+	              { id:'customer', icon:'fa-users', name:'Customer', href:'/Administrators/Customer/', 
+	                disabled: !permission.system },
+	              { id:'document', icon:'fa-file-text-o', name:'Documents', href:'/Administrators/Document/' },
+	              { id:'archive', icon:'fa-archive', name:'Archive', href:'/Administrators/Archive/' },
+	            ] 
+	          },
+	          { 
+	            id:'setting', 
+	            icon:'',
+	            name:'Setting', 
+	            dropdown: [
+	              { id:'config', icon:'fa-cogs', name:'Configuration', href:'/Administrators/Configuration/' },
+	              { id:'database', icon:'fa-database', name:'Database', href:'/Administrators/Database/', 
+	                disabled: !permission.system },
+	            ] 
+	          },
+	          { id:'tool',  icon:'', name:'Tools',  href:'/Administrators/Tools/' },
+	        ],
+	        operation: [],
+	        account: [],
+	      },
+	      selected: null,
+	      permission: 0,
+	      options: ['foo','bar','baz'],
+	      company: [],
+	      fullname: MBOS.Name(),
+	      customercode: MBOS.Code()
+	    }
+	  },
+    methods: {
+      filterBy:function(){
+
+      },
+      doEvent: function(event){ (this[event] || function(){})(); },
+      doLogout: function(){
+        var vm = this;
+        Dialog.confirm({
+          title: 'Confirm Logout',
+          className:'btn-danger',
+          message: 'Are you sure you want to logout of your account?',
+          yes: '<i class="fa fa-sign-out" aria-hidden="true"></i> Yes.', no: 'No, I also work unfinished.',
+          submit: function(){
+            if(!vm.mainmenu.logout) {
+              vm.mainmenu.logout = true;
+              var last = vm.pathname;
+              vm.pathname = '';
+              request({
+                url: '/SignIn/',
+                data: { event: 'logout' },
+                exception: true,
+                callback: function(data, cb){
+                  if(!cb.exError) {
+                    MBOS.setItem('session.permission', {}).then(function(){
+                      Storage('Permission', {});
+                      redirect('/');
+                    });
+                  } else {
+                    vm.pathname = last;
+                    vm.mainmenu.logout = false;
+                    console.warn(cb);
+                  }
+                }
+              });
+            }
+          }
+        });
+
+
+      }
+    },
+    computed: {
+      administrator: function() { return permission.admin; },
+      system: function() { return permission.system; }
+    },
+    created: function(){
+      var vm = this;
+
+      vm.$on('init', function(){
+        request({
+          api: true,
+          url: '/api-health/check/',
+          callback: function(data, cb){ 
+            if(cb.exError) { 
+              console.warn(cb); 
+            } else {
+
+              // data.maintenance
+              if(data.maintenance) {
+                msgbar.maintenace = true;
+                msgbar.message = data.maintenance;
+              }
+
+              if(!data.register) {
+
+              } else if(data.expired) {
+                MBOS.getItem('session.login').then(function(data){
+                  if(data) {
+                    Dialog.model({ 
+                      component: 'dialog-relogin', 
+                      data: data, 
+                      onshow: function(){ 
+                        Dialog.$children[0].$refs.txtPassword.focus() 
+                      } 
+                    });
+                  } else {
+                    redirect('/');
+                  }
+                });
+              }
+            }
+          }  
+        });
+      });
+      // vm.$emit('init');
+    }
+	});
+
+
+
 
 	return new Vue({ el: '#app' });
 }
@@ -138,7 +289,7 @@ window.Page = function(getComponent) {
 //           <div>
 //             <b>
 //               <a href="http://mbos.travox.co.th/">MBOS</a> |
-//               <a href="<%=MBOSEngine.MBOS.URL("Contact-us/") %>">Contact us</a>
+//               <a href="/Contact-us/") %>">Contact us</a>
 //             </b>
 //           </div>
 //             Travox is a registered trademark of <a href="http://ns.co.th/">Nippon Sysits Co.,Ltd</a><br>
