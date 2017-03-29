@@ -18,7 +18,7 @@ window.getVue.Model = {
 			        '</div>',
 			        '<div class="modal-footer">',
 			          '<slot name="footer">',
-			            '<button v-if="yes" type="button" class="btn" :class="class" v-html="yes" @click="on_yes"></button>',
+			            '<button v-if="yes" type="button" class="btn" :class="className" v-html="yes" @click="on_yes"></button>',
 			            '<button v-if="no"  type="button" class="btn btn-default" v-html="no" @click="on_no" data-dismiss="modal"></button>',
 			          '</slot>',
 			        '</div>',
@@ -44,7 +44,7 @@ window.getVue.Model = {
 			type: String,
 			default: 'Travox Midback Office™'
 		},
-		class: {
+		className: {
 			type: String,
 			default: 'btn-primary'
 		},
