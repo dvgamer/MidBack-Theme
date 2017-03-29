@@ -28,7 +28,6 @@ window.Page = function(getComponent) {
     data: function(){
     	return {
         sign: !/\/Contact\-us/g.test(location.href),
-        expired: MBOS.Expired(),
 	      pathname: location.pathname,
 	      projects: 'admin',
 	      mainmenu: {
@@ -111,6 +110,7 @@ window.Page = function(getComponent) {
       }
     },
     computed: {
+      expired: function() { return MBOS.Expired(); },
       administrator: function() { return permission.admin; },
       system: function() { return permission.system; }
     },
