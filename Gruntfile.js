@@ -110,12 +110,6 @@ module.exports = function(grunt) {
           expand: true,  
           cwd:'dist/', 
           src: ['vendor.min.js','app.min.css', 'app.min.js'], 
-          dest: '../Travox Midback-Office/TravoxReservation/travoxmosWeb/dist/' 
-        }],
-        files: [{ 
-          expand: true,  
-          cwd:'dist/', 
-          src: ['vendor.min.js','app.min.css', 'app.min.js'], 
           dest: '../Travox Midback-Office/Midback-Office/Midback-Office/dist/' 
         }]
       }
